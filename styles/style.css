@@ -1,0 +1,12 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  -webkit-appearance: 0;
+     -moz-appearance: 0;
+          appearance: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}/*# sourceMappingURL=style.css.map */
