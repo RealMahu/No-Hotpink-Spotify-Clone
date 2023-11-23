@@ -1,0 +1,13 @@
+{
+  "name": "no-hotpink-spotify-clone",
+  "description": "This project is about an spotify clone, made by Michelle, David and Danny",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
