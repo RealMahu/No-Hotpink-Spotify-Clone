@@ -22,15 +22,21 @@
   <body>
     <footer>
       <audio id="PlayerAudioSrc" src=""></audio>
-      <div id="heartInfo" class="infoCard">
-        <p>Save to Your Library</p>
+      <div class="InfoCard_Container">
+        <div id="heartInfo" class="infoCard_heart">
+          <p>Save to Your Library</p>
+        </div>
+        <div id="shuffleInfo" class="infoCard_shuffle">
+          <p>Enable Shuffle for The Album</p>
+        </div>
       </div>
+
       <div class="Player_Container">
         <div class="left_Container">
           <img id="pic" src="" alt="" srcset="" />
           <div class="text_Container">
-            <abbr title=""><h3 id="title"></h3></abbr>
-            <p id="artist"></p>
+            <abbr id="infoTitle" title=""><h3 id="title"></h3></abbr>
+            <abbr id="infoArtist" title=""><p id="artist"></p></abbr>
           </div>
           <div class="heart_Container">
             <i id="heart" class="bi bi-heart"></i>
@@ -39,7 +45,7 @@
         <div class="mid_Container">
           <div class="buttons_Player">
             <button class="btn_Player_s">
-              <i class="bi bi-shuffle"></i>
+              <i id="shuffle" class="bi bi-shuffle"></i>
             </button>
             <button id="prev" class="btn_Player_l">
               <i class="bi bi-arrow-bar-left"></i>

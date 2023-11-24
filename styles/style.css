@@ -16,7 +16,11 @@
   box-sizing: border-box;
 }
 
-.infoCard {
+.InfoCard_Container {
+  display: flex;
+  flex-direction: row;
+}
+.InfoCard_Container .infoCard_heart {
   display: none;
   z-index: 10;
   position: relative;
@@ -28,7 +32,25 @@
   padding: 5px;
   border-radius: 5px;
 }
-.infoCard p {
+.InfoCard_Container .infoCard_heart p {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Figtree", sans-serif;
+}
+.InfoCard_Container .infoCard_shuffle {
+  display: none;
+  z-index: 10;
+  position: relative;
+  top: 20px;
+  left: 335px;
+  background-color: #4b4b4b;
+  width: 220px;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.InfoCard_Container .infoCard_shuffle p {
   color: white;
   font-size: 16px;
   font-weight: 400;
@@ -107,6 +129,9 @@
   margin-top: 25px;
   font-size: 20px;
   margin-right: 20px;
+}
+.Player_Container .mid_Container .buttons_Player .btn_Player_s:hover {
+  color: white;
 }
 .Player_Container .mid_Container .buttons_Player .btn_Player_l {
   background: none;

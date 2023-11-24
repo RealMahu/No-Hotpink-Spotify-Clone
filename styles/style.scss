@@ -14,23 +14,44 @@ $primary-color: #2ecc71;
   text-decoration: none;
   box-sizing: border-box;
 }
-
-.infoCard {
-  display: none;
-  z-index: 10;
-  position: relative;
-  top: 20px;
-  left: 235px;
-  background-color: #4b4b4b;
-  width: 170px;
-  justify-content: center;
-  padding: 5px;
-  border-radius: 5px;
-  p {
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-    font-family: "Figtree", sans-serif;
+.InfoCard_Container {
+  display: flex;
+  flex-direction: row;
+  .infoCard_heart {
+    display: none;
+    z-index: 10;
+    position: relative;
+    top: 20px;
+    left: 235px;
+    background-color: #4b4b4b;
+    width: 170px;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    p {
+      color: white;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: "Figtree", sans-serif;
+    }
+  }
+  .infoCard_shuffle {
+    display: none;
+    z-index: 10;
+    position: relative;
+    top: 20px;
+    left: 335px;
+    background-color: #4b4b4b;
+    width: 220px;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    p {
+      color: white;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: "Figtree", sans-serif;
+    }
   }
 }
 
@@ -105,6 +126,9 @@ $primary-color: #2ecc71;
         margin-top: 25px;
         font-size: 20px;
         margin-right: 20px;
+        &:hover {
+          color: white;
+        }
       }
       .btn_Player_l {
         background: none;

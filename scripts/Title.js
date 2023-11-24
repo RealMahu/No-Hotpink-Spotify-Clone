@@ -6,7 +6,9 @@ async function updateTitle() {
 
   function getTitle() {
     const Title = document.getElementById("title");
+    const infotitle = document.getElementById("infoTitle");
     Title.innerText = song.title;
+    infotitle.title = Title.innerText;
   }
 
   getTitle();

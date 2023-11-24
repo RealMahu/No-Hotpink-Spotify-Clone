@@ -10,7 +10,12 @@ import {
   playSong,
 } from "./scripts/previewsNextButtons.js";
 import { updateArtistName } from "./scripts/ArtistName.js";
-import { heartMouseOver, heartMouseOut } from "./scripts/hoverOnIcons.js";
+import {
+  heartMouseOver,
+  heartMouseOut,
+  shuffleMouseOver,
+  shuffleMouseOut,
+} from "./scripts/hoverOnIcons.js";
 
 getTrackSrc();
 getPic();
@@ -30,6 +35,12 @@ formatTime;
 pad;
 document.getElementById("heart").addEventListener("mouseover", heartMouseOver);
 document.getElementById("heart").addEventListener("mouseout", heartMouseOut);
+document
+  .getElementById("shuffle")
+  .addEventListener("mouseover", shuffleMouseOver);
+document
+  .getElementById("shuffle")
+  .addEventListener("mouseout", shuffleMouseOut);
 
 audioModule;
 document
