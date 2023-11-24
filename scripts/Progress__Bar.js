@@ -31,4 +31,4 @@ function updateProgressBar(duration) {
   });
 }
 
-export default updateProgressBar;
+export { updateProgressBar };

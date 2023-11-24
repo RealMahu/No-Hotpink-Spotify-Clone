@@ -1,8 +1,8 @@
 import { getTrackSrc, playAudio } from "./scripts/playButton.js";
 import { getPic } from "./scripts/ArtistPic.js";
 import { updateTitle } from "./scripts/Title.js";
-import { formatTime, pad } from "./scripts/Song__Time.js";
-import progressBar from "./scripts/Progress__Bar.js";
+import { checkTime, formatTime, pad } from "./scripts/Song__Time.js";
+import { updateProgressBar } from "./scripts/Progress__Bar.js";
 import { audioModule } from "./scripts/VolumeSlider.js";
 import {
   playPreviousSong,
@@ -16,6 +16,7 @@ import {
   shuffleMouseOver,
   shuffleMouseOut,
 } from "./scripts/hoverOnIcons.js";
+import songs from "./scripts/shuffleButton.js";
 
 getTrackSrc();
 getPic();
@@ -30,9 +31,10 @@ document.getElementById("next").addEventListener("click", playNextSong);
 document.getElementById("next").addEventListener("click", updateTitle);
 document.getElementById("next").addEventListener("click", updateArtistName);
 document.getElementById("next").addEventListener("click", playSong);
-progressBar();
+updateProgressBar;
 formatTime;
 pad;
+checkTime();
 document.getElementById("heart").addEventListener("mouseover", heartMouseOver);
 document.getElementById("heart").addEventListener("mouseout", heartMouseOut);
 document
@@ -46,3 +48,4 @@ audioModule;
 document
   .getElementById("mute")
   .addEventListener("click", audioModule.muteAudio);
+songs;

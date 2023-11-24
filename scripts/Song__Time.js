@@ -1,3 +1,11 @@
+import {
+  playCurrentSong,
+  playNextSong,
+  playSong,
+} from "./previewsNextButtons.js";
+import { updateTitle } from "./Title.js";
+import { updateArtistName } from "./ArtistName.js";
+
 const audioElement = document.getElementById("PlayerAudioSrc");
 const timer = document.getElementById("Song_Time");
 const timeFull = document.getElementById("TimeFull");
@@ -24,4 +32,17 @@ function pad(number) {
   return number < 10 ? "0" + number : number;
 }
 
-export { formatTime, pad };
+function checkTime() {
+  if (Math.abs(audioElement.currentTime - audioElement.duration) < 0.1) {
+    console.log("Condition met. Playing song...");
+    playNextSong();
+    updateArtistName();
+    updateTitle();
+    playSong();
+  }
+}
+
+// Call checkTime every 1000 milliseconds (1 second)
+setInterval(checkTime, 1000);
+
+export { formatTime, pad, checkTime };
