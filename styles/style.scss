@@ -37,21 +37,34 @@ $primary-color: #2ecc71;
       h3 {
         font-weight: 500;
         font-size: 16px;
+        &:hover {
+          text-decoration: underline;
+        }
       }
       p {
-        color: lightgray;
+        color: gray;
         font-size: 12px;
+        font-weight: 600;
+        &:hover {
+          color: white;
+          text-decoration: underline;
+        }
       }
     }
     .heart_Container {
       display: flex;
       flex-direction: column;
-      color: lightgrey;
+      color: grey;
       justify-content: center;
       align-items: center;
       margin-left: 5px;
       font-size: 18px;
       margin-right: 20px;
+      .bi-heart {
+        &:hover {
+          color: white;
+        }
+      }
     }
   }
   .mid_Container {
@@ -64,18 +77,19 @@ $primary-color: #2ecc71;
       justify-content: center;
       min-width: 300px;
       margin-left: 20px;
+      height: 60px;
       .btn_Player_s {
         background: none;
         color: gray;
-        margin-top: 30px;
+        margin-top: 25px;
         font-size: 20px;
         margin-right: 20px;
       }
       .btn_Player_l {
         background: none;
         color: gray;
-        margin-top: 30px;
-        font-size: 30px;
+        margin-top: 25px;
+        font-size: 25px;
         margin-right: 20px;
       }
       input[type="checkbox"].btn_Player_pl {
@@ -84,16 +98,23 @@ $primary-color: #2ecc71;
       #playicon {
         background: none;
         color: white;
-        margin-top: 30px;
-        font-size: 30px;
+        margin-top: 20px;
+        font-size: 40px;
         margin-right: 20px;
       }
 
       .btn_Player_r {
         background: none;
         color: gray;
-        margin-top: 30px;
-        font-size: 30px;
+        margin-top: 25px;
+        font-size: 25px;
+        margin-right: 20px;
+      }
+      .btn_Player_repeat {
+        background: none;
+        color: gray;
+        margin-top: 25px;
+        font-size: 20px;
         margin-right: 20px;
       }
     }
@@ -101,6 +122,7 @@ $primary-color: #2ecc71;
       display: flex;
       flex-direction: row;
       min-width: 350px;
+      margin-bottom: 20px;
       .time {
         display: flex;
         flex-direction: row;
@@ -142,6 +164,16 @@ $primary-color: #2ecc71;
           }
         }
       }
+      .TimeFull {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: lightgray;
+        font-family: "figtree", sans-serif;
+        margin-right: 10px;
+        font-size: 12px;
+      }
     }
   }
   .right_Container {
@@ -149,6 +181,7 @@ $primary-color: #2ecc71;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
     .btn_right_v {
       background: none;
       color: gray;
@@ -165,24 +198,28 @@ $primary-color: #2ecc71;
     }
     .btn_right_q {
       background: none;
-      color: white;
+      color: gray;
       margin-top: 30px;
       font-size: 26px;
       margin-right: 15px;
     }
     .btn_right_d {
       background: none;
-      color: white;
+      color: gray;
       margin-top: 30px;
       font-size: 24px;
       margin-right: 15px;
     }
-    .btn_right_mute {
+    input[type="checkbox"].btn_right_mute {
+      display: none;
+    }
+    #muteicon {
       background: none;
       color: gray;
       margin-top: 30px;
       font-size: 26px;
     }
+
     #player {
       min-width: 70px;
       height: 5px;

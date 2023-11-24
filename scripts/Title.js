@@ -1,10 +1,18 @@
-import getData from "./fetch.js";
+import { playCurrentSong } from "./previewsNextButtons.js";
 
-const result = await getData();
+async function updateTitle() {
+  const song = await playCurrentSong();
+  console.log(song);
 
-function getTitle() {
-  const Title = document.getElementById("title");
-  Title.innerText = result.title;
+  function getTitle() {
+    const Title = document.getElementById("title");
+    Title.innerText = song.title;
+  }
+
+  getTitle();
 }
 
-export { getTitle };
+// Optional: Rufe die Funktion auch sofort auf, um den Titel beim Start zu setzen
+updateTitle();
+
+export { updateTitle };

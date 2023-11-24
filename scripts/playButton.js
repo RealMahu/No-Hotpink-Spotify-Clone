@@ -1,24 +1,25 @@
-import getData from "./fetch.js";
+import getSongArry from "./SongArry.js";
 
-const result = await getData();
-console.log(result);
+const songs = getSongArry();
+let currentSongIndex = 0;
 
 const TrackPlay = document.getElementById("PlayerAudioSrc");
 const playIcon = document.getElementById("play");
 const labelForIcon = document.getElementById("playicon");
-labelForIcon.innerHTML = `<i class="bi bi-play-fill"></i>`;
+labelForIcon.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
 
 function getTrackSrc() {
-  TrackPlay.src = result.preview;
+  const currentSong = songs[currentSongIndex];
+  TrackPlay.src = currentSong.preview;
 }
 
 function playAudio() {
   if (playIcon.checked) {
     TrackPlay.play();
-    labelForIcon.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+    labelForIcon.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
   } else {
     TrackPlay.pause();
-    labelForIcon.innerHTML = `<i class="bi bi-play-fill"></i>`;
+    labelForIcon.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
   }
 }
 

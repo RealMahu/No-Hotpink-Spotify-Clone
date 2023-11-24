@@ -1,10 +1,16 @@
-import getData from "./fetch.js";
+import { playCurrentSong } from "./previewsNextButtons.js";
 
-const result = await getData();
+async function updateArtistName() {
+  const song = await playCurrentSong();
 
-function getArtistName() {
-  const Artist = document.getElementById("artist");
-  Artist.innerText = `${result.artist.name}, ${result.contributors[1].name}`;
+  function getArtist() {
+    const Artist = document.getElementById("artist");
+    Artist.innerText = `${song.artist.name}`;
+  }
+
+  getArtist();
 }
 
-export { getArtistName };
+updateArtistName();
+
+export { updateArtistName };

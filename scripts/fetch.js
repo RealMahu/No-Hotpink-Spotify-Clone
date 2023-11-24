@@ -1,5 +1,5 @@
 async function getData() {
-  const url = "https://deezerdevs-deezer.p.rapidapi.com/track/731535962";
+  const url = "https://deezerdevs-deezer.p.rapidapi.com/album/107443842";
   const options = {
     method: "GET",
     headers: {
@@ -11,7 +11,7 @@ async function getData() {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    console.log(result);
+
     return result;
   } catch (error) {
     console.error(error);

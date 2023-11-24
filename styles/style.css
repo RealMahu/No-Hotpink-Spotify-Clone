@@ -42,19 +42,30 @@
   font-weight: 500;
   font-size: 16px;
 }
+.Player_Container .left_Container .text_Container h3:hover {
+  text-decoration: underline;
+}
 .Player_Container .left_Container .text_Container p {
-  color: lightgray;
+  color: gray;
   font-size: 12px;
+  font-weight: 600;
+}
+.Player_Container .left_Container .text_Container p:hover {
+  color: white;
+  text-decoration: underline;
 }
 .Player_Container .left_Container .heart_Container {
   display: flex;
   flex-direction: column;
-  color: lightgrey;
+  color: grey;
   justify-content: center;
   align-items: center;
   margin-left: 5px;
   font-size: 18px;
   margin-right: 20px;
+}
+.Player_Container .left_Container .heart_Container .bi-heart:hover {
+  color: white;
 }
 .Player_Container .mid_Container {
   display: flex;
@@ -67,19 +78,20 @@
   justify-content: center;
   min-width: 300px;
   margin-left: 20px;
+  height: 60px;
 }
 .Player_Container .mid_Container .buttons_Player .btn_Player_s {
   background: none;
   color: gray;
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 20px;
   margin-right: 20px;
 }
 .Player_Container .mid_Container .buttons_Player .btn_Player_l {
   background: none;
   color: gray;
-  margin-top: 30px;
-  font-size: 30px;
+  margin-top: 25px;
+  font-size: 25px;
   margin-right: 20px;
 }
 .Player_Container .mid_Container .buttons_Player input[type=checkbox].btn_Player_pl {
@@ -88,21 +100,29 @@
 .Player_Container .mid_Container .buttons_Player #playicon {
   background: none;
   color: white;
-  margin-top: 30px;
-  font-size: 30px;
+  margin-top: 20px;
+  font-size: 40px;
   margin-right: 20px;
 }
 .Player_Container .mid_Container .buttons_Player .btn_Player_r {
   background: none;
   color: gray;
-  margin-top: 30px;
-  font-size: 30px;
+  margin-top: 25px;
+  font-size: 25px;
+  margin-right: 20px;
+}
+.Player_Container .mid_Container .buttons_Player .btn_Player_repeat {
+  background: none;
+  color: gray;
+  margin-top: 25px;
+  font-size: 20px;
   margin-right: 20px;
 }
 .Player_Container .mid_Container .progress_Container {
   display: flex;
   flex-direction: row;
   min-width: 350px;
+  margin-bottom: 20px;
 }
 .Player_Container .mid_Container .progress_Container .time {
   display: flex;
@@ -143,11 +163,22 @@
   width: 10%;
   background: white;
 }
+.Player_Container .mid_Container .progress_Container .TimeFull {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: lightgray;
+  font-family: "figtree", sans-serif;
+  margin-right: 10px;
+  font-size: 12px;
+}
 .Player_Container .right_Container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding-bottom: 30px;
 }
 .Player_Container .right_Container .btn_right_v {
   background: none;
@@ -165,19 +196,22 @@
 }
 .Player_Container .right_Container .btn_right_q {
   background: none;
-  color: white;
+  color: gray;
   margin-top: 30px;
   font-size: 26px;
   margin-right: 15px;
 }
 .Player_Container .right_Container .btn_right_d {
   background: none;
-  color: white;
+  color: gray;
   margin-top: 30px;
   font-size: 24px;
   margin-right: 15px;
 }
-.Player_Container .right_Container .btn_right_mute {
+.Player_Container .right_Container input[type=checkbox].btn_right_mute {
+  display: none;
+}
+.Player_Container .right_Container #muteicon {
   background: none;
   color: gray;
   margin-top: 30px;

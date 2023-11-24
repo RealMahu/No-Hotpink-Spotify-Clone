@@ -42,27 +42,32 @@
             <button class="btn_Player_s">
               <i class="bi bi-shuffle"></i>
             </button >
-            <button class="btn_Player_l">
+            <button id="prev" class="btn_Player_l">
                 <i class="bi bi-arrow-bar-left"></i>
             </button>
             <label for="play" id="playicon"></label>
             <input type="checkbox" class="btn_Player_pl" name="" id="play">
   
-            <button class="btn_Player_r">
+            <button id="next" class="btn_Player_r">
                 <i class="bi bi-arrow-bar-right"></i>
             </button>
+            <button class="btn_Player_repeat">
+              <i class="bi bi-arrow-counterclockwise"></i>
+          </button>
           </div>
           <div class="progress_Container">
             <div id="Song_Time" class="time"></div>
-            <script src="scripts/Spotify__Player/Song__Time.js"></script>
+            
             <div class="time-tracker">
               <div class="timer">
                 <div class="bg">
-                  <div id="Progress__Bar" class="bg1"><script src="scripts/Spotify__Player/Progress__Bar.js"></script>
+                  <div id="Progress__Bar" class="bg1">
+                    
                 </div>
               </div>
             </div>
           </div>
+          <div class="TimeFull" id="TimeFull"></div>
         </div>
       </div>
       <div class="right_Container">
@@ -78,17 +83,14 @@
         <button class="btn_right_d">
           <i class="bi bi-pci-card-sound"></i>
         </button>
-        <button class="btn_right_mute">
-          <i class="bi bi-volume-mute"></i>
-          <!-- <i class="bi bi-volume-off"></i>
-          <i class="bi bi-volume-down"></i>
-          <i class="bi bi-volume-up"></i> -->
-        </button >
+        <label for="mute" id="muteicon"></label>
+            <input type="checkbox" class="btn_right_mute" name="" id="mute">
+        
         <div id="player">
           <div id="volume">
             <div class="ui-slider-range-min"></div>
             <span class="ui-slider-handle"></span></div>
-          <script src="./scripts/VolumeSlider.js"></script>
+       
         </div>
         <button class="btn_right_f"><i class="bi bi-arrows-fullscreen"></i></button>
       </div>
