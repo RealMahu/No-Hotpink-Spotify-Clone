@@ -3,7 +3,6 @@ import { getPic } from "./scripts/ArtistPic.js";
 import { updateTitle } from "./scripts/Title.js";
 import { formatTime, pad } from "./scripts/Song__Time.js";
 import progressBar from "./scripts/Progress__Bar.js";
-
 import { audioModule } from "./scripts/VolumeSlider.js";
 import {
   playPreviousSong,
@@ -11,6 +10,7 @@ import {
   playSong,
 } from "./scripts/previewsNextButtons.js";
 import { updateArtistName } from "./scripts/ArtistName.js";
+import { heartMouseOver, heartMouseOut } from "./scripts/hoverOnIcons.js";
 
 getTrackSrc();
 getPic();
@@ -28,6 +28,8 @@ document.getElementById("next").addEventListener("click", playSong);
 progressBar();
 formatTime;
 pad;
+document.getElementById("heart").addEventListener("mouseover", heartMouseOver);
+document.getElementById("heart").addEventListener("mouseout", heartMouseOut);
 
 audioModule;
 document

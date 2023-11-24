@@ -16,11 +16,32 @@
   box-sizing: border-box;
 }
 
+.infoCard {
+  display: none;
+  z-index: 10;
+  position: relative;
+  top: 20px;
+  left: 235px;
+  background-color: #4b4b4b;
+  width: 170px;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.infoCard p {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Figtree", sans-serif;
+}
+
 .Player_Container {
+  position: relative;
   height: 100px;
   display: flex;
   flex-direction: row;
   background-color: black;
+  z-index: 5;
 }
 .Player_Container .left_Container {
   display: flex;
@@ -64,7 +85,7 @@
   font-size: 18px;
   margin-right: 20px;
 }
-.Player_Container .left_Container .heart_Container:hover {
+.Player_Container .left_Container .heart_Container .bi-heart:hover {
   color: white;
 }
 .Player_Container .mid_Container {

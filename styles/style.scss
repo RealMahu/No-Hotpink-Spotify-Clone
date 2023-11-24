@@ -15,11 +15,32 @@ $primary-color: #2ecc71;
   box-sizing: border-box;
 }
 
+.infoCard {
+  display: none;
+  z-index: 10;
+  position: relative;
+  top: 20px;
+  left: 235px;
+  background-color: #4b4b4b;
+  width: 170px;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  p {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Figtree", sans-serif;
+  }
+}
+
 .Player_Container {
+  position: relative;
   height: 100px;
   display: flex;
   flex-direction: row;
   background-color: black;
+  z-index: 5;
   .left_Container {
     display: flex;
     flex-direction: row;
@@ -61,9 +82,9 @@ $primary-color: #2ecc71;
       font-size: 18px;
       margin-right: 20px;
       .bi-heart {
-      }
-      &:hover {
-        color: white;
+        &:hover {
+          color: white;
+        }
       }
     }
   }
