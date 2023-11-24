@@ -4,27 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="index.js" defer></script>
-    
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="/styles/style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
       integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
       crossorigin="anonymous" />
-      <link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/icon?family=Material+Icons"
-/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
     <title>No Hotpink Spotify</title>
   </head>
   <body>
     <footer>
-      	<audio id="PlayerAudioSrc" src="">
-
-        </audio>
+      <audio id="PlayerAudioSrc" src=""></audio>
 
       <div class="Player_Container">
         <div class="left_Container">
@@ -41,58 +38,60 @@
           <div class="buttons_Player">
             <button class="btn_Player_s">
               <i class="bi bi-shuffle"></i>
-            </button >
+            </button>
             <button id="prev" class="btn_Player_l">
-                <i class="bi bi-arrow-bar-left"></i>
+              <i class="bi bi-arrow-bar-left"></i>
             </button>
             <label for="play" id="playicon"></label>
-            <input type="checkbox" class="btn_Player_pl" name="" id="play">
-  
+            <input type="checkbox" class="btn_Player_pl" name="" id="play" />
+
             <button id="next" class="btn_Player_r">
-                <i class="bi bi-arrow-bar-right"></i>
+              <i class="bi bi-arrow-bar-right"></i>
             </button>
             <button class="btn_Player_repeat">
               <i class="bi bi-arrow-counterclockwise"></i>
-          </button>
+            </button>
           </div>
           <div class="progress_Container">
             <div id="Song_Time" class="time"></div>
-            
             <div class="time-tracker">
               <div class="timer">
-                <div class="bg">
-                  <div id="Progress__Bar" class="bg1">
-                    
+                <div id="Slider_progress">
+                  <div class="ui-slider-range-min"></div>
+                  <span class="ui-slider-handle"></span>
                 </div>
               </div>
             </div>
+            <div class="TimeFull" id="TimeFull"></div>
           </div>
-          <div class="TimeFull" id="TimeFull"></div>
         </div>
-      </div>
-      <div class="right_Container">
-        <button class="btn_right_v">
-          <i class="bi bi-file-play"></i>
-        </button>
-        <button class="btn_right_l">
-          <i class="bi bi-card-text"></i>
-        </button>
-        <button class="btn_right_q">
-          <i class="bi bi-list"></i>
-        </button>
-        <button class="btn_right_d">
-          <i class="bi bi-pci-card-sound"></i>
-        </button>
-        <label for="mute" id="muteicon"></label>
-            <input type="checkbox" class="btn_right_mute" name="" id="mute">
-        
-        <div id="player">
-          <div id="volume">
-            <div class="ui-slider-range-min"></div>
-            <span class="ui-slider-handle"></span></div>
-       
+
+        <div class="right_Container">
+          <button class="btn_right_v">
+            <i class="bi bi-file-play"></i>
+          </button>
+          <button class="btn_right_l">
+            <i class="bi bi-card-text"></i>
+          </button>
+          <button class="btn_right_q">
+            <i class="bi bi-list"></i>
+          </button>
+          <button class="btn_right_d">
+            <i class="bi bi-pci-card-sound"></i>
+          </button>
+          <label for="mute" id="muteicon"></label>
+          <input type="checkbox" class="btn_right_mute" name="" id="mute" />
+
+          <div id="player">
+            <div id="volume">
+              <div class="ui-slider-range-min"></div>
+              <span class="ui-slider-handle"></span>
+            </div>
+          </div>
+          <button class="btn_right_f">
+            <i class="bi bi-arrows-fullscreen"></i>
+          </button>
         </div>
-        <button class="btn_right_f"><i class="bi bi-arrows-fullscreen"></i></button>
       </div>
     </footer>
   </body>
