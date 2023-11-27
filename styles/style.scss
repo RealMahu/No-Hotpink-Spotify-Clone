@@ -136,6 +136,9 @@ $primary-color: #2ecc71;
         margin-top: 25px;
         font-size: 25px;
         margin-right: 20px;
+        &:hover #prevs {
+          color: #fff;
+        }
       }
       input[type="checkbox"].btn_Player_pl {
         display: none;
@@ -154,6 +157,9 @@ $primary-color: #2ecc71;
         margin-top: 25px;
         font-size: 25px;
         margin-right: 20px;
+        &:hover #nexts {
+          color: white;
+        }
       }
       .btn_Player_repeat {
         background: none;
@@ -166,6 +172,7 @@ $primary-color: #2ecc71;
     .progress_Container {
       display: flex;
       flex-direction: row;
+      justify-content: center;
       min-width: 350px;
       margin-bottom: 20px;
       .time {
@@ -343,3 +350,11 @@ $primary-color: #2ecc71;
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 
 $primary-color: #2ecc71;
+
+@media screen and (min-width: 900px) {
+  .Player_Container {
+    .mid_Container {
+      width: 100%;
+    }
+  }
+}

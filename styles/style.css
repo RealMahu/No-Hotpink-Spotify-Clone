@@ -140,6 +140,9 @@
   font-size: 25px;
   margin-right: 20px;
 }
+.Player_Container .mid_Container .buttons_Player .btn_Player_l:hover #prevs {
+  color: #fff;
+}
 .Player_Container .mid_Container .buttons_Player input[type=checkbox].btn_Player_pl {
   display: none;
 }
@@ -157,6 +160,9 @@
   font-size: 25px;
   margin-right: 20px;
 }
+.Player_Container .mid_Container .buttons_Player .btn_Player_r:hover #nexts {
+  color: white;
+}
 .Player_Container .mid_Container .buttons_Player .btn_Player_repeat {
   background: none;
   color: gray;
@@ -167,6 +173,7 @@
 .Player_Container .mid_Container .progress_Container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   min-width: 350px;
   margin-bottom: 20px;
 }
@@ -330,4 +337,10 @@
   font-size: 18px;
   margin-right: 10px;
   margin-left: 10px;
+}
+
+@media screen and (min-width: 900px) {
+  .Player_Container .mid_Container {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */
