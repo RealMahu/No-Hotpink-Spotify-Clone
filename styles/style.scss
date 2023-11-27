@@ -120,15 +120,15 @@ $primary-color: #2ecc71;
       min-width: 300px;
       margin-left: 20px;
       height: 60px;
-      .btn_Player_s {
+      input[type="checkbox"].btn_Player_s {
+        display: none;
+      }
+      #shuffleicon {
         background: none;
         color: gray;
-        margin-top: 25px;
+        margin-top: 30px;
         font-size: 20px;
         margin-right: 20px;
-        &:hover {
-          color: white;
-        }
       }
       .btn_Player_l {
         background: none;

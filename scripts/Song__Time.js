@@ -1,8 +1,4 @@
-import {
-  playCurrentSong,
-  playNextSong,
-  playSong,
-} from "./previewsNextButtons.js";
+import { playNextSong, playSong } from "./previewsNextButtons.js";
 import { updateTitle } from "./Title.js";
 import { updateArtistName } from "./ArtistName.js";
 

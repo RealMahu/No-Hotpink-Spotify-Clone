@@ -16,7 +16,7 @@ import {
   shuffleMouseOver,
   shuffleMouseOut,
 } from "./scripts/hoverOnIcons.js";
-import songs from "./scripts/shuffleButton.js";
+import { playshuffle } from "./scripts/shuffleButton.js";
 
 getTrackSrc();
 getPic();
@@ -38,14 +38,14 @@ checkTime();
 document.getElementById("heart").addEventListener("mouseover", heartMouseOver);
 document.getElementById("heart").addEventListener("mouseout", heartMouseOut);
 document
-  .getElementById("shuffle")
+  .getElementById("shuffle1")
   .addEventListener("mouseover", shuffleMouseOver);
+document.getElementById("shuffle").addEventListener("click", playshuffle);
 document
-  .getElementById("shuffle")
+  .getElementById("shuffle1")
   .addEventListener("mouseout", shuffleMouseOut);
 
 audioModule;
 document
   .getElementById("mute")
   .addEventListener("click", audioModule.muteAudio);
-songs;

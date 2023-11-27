@@ -123,15 +123,15 @@
   margin-left: 20px;
   height: 60px;
 }
-.Player_Container .mid_Container .buttons_Player .btn_Player_s {
+.Player_Container .mid_Container .buttons_Player input[type=checkbox].btn_Player_s {
+  display: none;
+}
+.Player_Container .mid_Container .buttons_Player #shuffleicon {
   background: none;
   color: gray;
-  margin-top: 25px;
+  margin-top: 30px;
   font-size: 20px;
   margin-right: 20px;
-}
-.Player_Container .mid_Container .buttons_Player .btn_Player_s:hover {
-  color: white;
 }
 .Player_Container .mid_Container .buttons_Player .btn_Player_l {
   background: none;
