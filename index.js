@@ -1,3 +1,6 @@
+import { loadSongs } from './scripts/loadSongs.js';
+import { loadGenre, genreUrlList } from './scripts/loadGenre.js';
+
 import { getTrackSrc, playAudio } from "./scripts/playButton.js";
 import { getPic } from "./scripts/ArtistPic.js";
 import { updateTitle } from "./scripts/Title.js";
@@ -49,3 +52,13 @@ audioModule;
 document
   .getElementById("mute")
   .addEventListener("click", audioModule.muteAudio);
+
+// Danny
+let currentPage;
+
+loadGenre(genreUrlList);
+
+export const state = {
+	currentPage,
+};
+
