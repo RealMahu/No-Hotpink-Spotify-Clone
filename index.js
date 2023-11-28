@@ -1,5 +1,5 @@
-import { loadSongs } from './scripts/loadSongs.js';
-import { loadGenre, genreUrlList } from './scripts/loadGenre.js';
+import { loadSongs } from "./scripts/loadSongs.js";
+import { loadGenre, genreUrlList } from "./scripts/loadGenre.js";
 
 import { getTrackSrc, playAudio } from "./scripts/playButton.js";
 import { getPic } from "./scripts/ArtistPic.js";
@@ -21,6 +21,7 @@ import {
 } from "./scripts/hoverOnIcons.js";
 import { playshuffle } from "./scripts/shuffleButton.js";
 
+loadGenre(genreUrlList);
 getTrackSrc();
 getPic();
 updateTitle();
@@ -56,9 +57,6 @@ document
 // Danny
 let currentPage;
 
-loadGenre(genreUrlList);
-
 export const state = {
-	currentPage,
+  currentPage,
 };
-
