@@ -1,4 +1,4 @@
-import getData from "./fetch.js";
+import { getData } from "./fetch.js";
 
 const result = await getData();
 

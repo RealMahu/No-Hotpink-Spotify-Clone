@@ -1,6 +1,6 @@
 import { state } from "../index.js";
 import { loadArtists } from "./loadArtist.js";
-import getData from "./fetch.js";
+import { loadElement } from "./fetch.js";
 
 const mainArea = document.querySelector(".style-main");
 const options = {
@@ -64,8 +64,8 @@ async function loadSongs(selectedArtist) {
             console.log(
               `Album ID: ${albumId}\nTrack ID: ${trackId},\nTrack Link: ${trackIdLink}`
             );
-            const ablid = await getData(albumId);
-            return ablid;
+            const AlbumObjekt = songData.album.tracklist;
+            console.log(AlbumObjekt);
           });
           musicCardArea.appendChild(musicCard);
 
