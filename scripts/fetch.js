@@ -1,5 +1,19 @@
+function loadElement() {
+  const musicCard = document.querySelector(".music-card");
+  if (musicCard) {
+    musicCard.addEventListener("click", (e) => {
+      console.log(e.target.id);
+      return e.target.id;
+    });
+  } else {
+    setTimeout(loadElement, 100);
+  }
+}
+
+loadElement();
+
 async function getData() {
-  const url = "https://deezerdevs-deezer.p.rapidapi.com/album/107443842";
+  const url = `https://deezerdevs-deezer.p.rapidapi.com/album/`;
   const options = {
     method: "GET",
     headers: {
@@ -11,7 +25,7 @@ async function getData() {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-
+    console.log(result);
     return result;
   } catch (error) {
     console.error(error);
