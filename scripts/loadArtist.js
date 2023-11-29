@@ -227,9 +227,12 @@ async function loadArtists(selectedGenre) {
             const artistCard = document.createElement("div");
             artistCard.classList.add("artist-card");
             artistCard.innerHTML = `
-							<img src="${artistImage}" alt="">
-                            <p>${artistName}</p>
-                        `;
+				<img src="${artistImage}" alt="">
+				<hr>
+				<div class="artist-name">
+					<p>${artistName}</p>
+				</div>
+            `;
             artistCard.addEventListener("click", () => {
               console.log(`Clicked on Artist: ${artistName}`);
               loadSongs(`${artistName}`);

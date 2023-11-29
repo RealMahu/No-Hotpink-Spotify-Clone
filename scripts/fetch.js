@@ -23,7 +23,7 @@ async function getData(albumId, trackId) {
   const originalSongArry = songs;
   localStorage.setItem("originalSongArry", JSON.stringify(originalSongArry));
   const Picture = document.getElementById("pic");
-  Picture.src = result.artist.picture_small;
+  Picture.src = result.cover_small;
   const foundTrack = result.tracks.data.find((track) => track.id === trackId);
   console.log(foundTrack);
   if (foundTrack) {

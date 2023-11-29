@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
-@import url(https://fonts.googleapis.com/css?family=Raleway:500);
 //imports
 
 *,
@@ -26,7 +25,7 @@ body {
   padding: 5px;
   gap: 5px;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr) 45px;
+  grid-template-rows: repeat(4, 1fr) 100px;
 
   .style-main {
     background-color: #111;
@@ -71,13 +70,14 @@ body {
         box-shadow: 3px 3px 5px rgba(0, 0, 0, 1),
           inset 1px 1px 1px rgba(255, 255, 255, 0.3);
         img {
-          border-radius: 5px;
+          border-radius: 6px 6px 0px 0px;
         }
         .card-btm {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           height: 100%;
+		  font-family: "Figtree", sans-serif;
           p {
             width: 100%;
             font-size: 13px;
@@ -120,7 +120,7 @@ body {
         p {
           color: #fff;
           font-size: 14px;
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-family: "Figtree", sans-serif;
         }
       }
     }
@@ -131,28 +131,48 @@ body {
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
-      .artist-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        img {
-          border-radius: 10%;
-          border: 3px solid $accent-color;
-          box-shadow: 3px 3px 5px rgba(0, 0, 0, 1);
-          &:hover {
-            scale: 1.1;
-            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
-            transition: all 300ms ease-in-out;
-          }
-        }
-        p {
-          color: #fff;
-          font-size: 14px;
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-      }
+		.artist-card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			// gap: 10px;
+			background-color: #222;
+			box-shadow: 3px 3px 5px rgba(0, 0, 0, 1),
+			inset 1px 1px 1px rgba(255, 255, 255, 0.3);
+			border-radius: 5px;
+			overflow: hidden;
+			cursor: pointer;
+			height: 200px;
+			width: 150px;
+			padding: 10px;
+			&:hover {
+				scale: 1.1;
+				transition: all 300ms ease-in-out;
+			}
+			hr{
+				border-bottom: 1px solid $accent-color;
+				box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+				width: 100%;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			.artist-name{
+				height: 27%;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				word-break: keep-all;
+				p {
+					color: #fff;
+					font-size: 15px;
+					text-align: center;
+					font-family: "Figtree", sans-serif;
+				}
+			}
+		}
     }
     .spacer-heading {
       display: flex;
@@ -167,6 +187,7 @@ body {
         margin: 0 5px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         h2 {
+			font-family: "Figtree", sans-serif;
           font-size: 25px;
           color: #fff;
         }
