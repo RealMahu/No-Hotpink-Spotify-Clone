@@ -65,6 +65,7 @@ async function loadSongs(selectedArtist) {
             console.log(
               `Album ID: ${albumId}\nTrack ID: ${trackId},\nTrack Link: ${trackIdLink}`
             );
+
             getData(albumId, trackId);
           });
           musicCardArea.appendChild(musicCard);
