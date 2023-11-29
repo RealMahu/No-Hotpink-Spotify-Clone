@@ -1,6 +1,6 @@
 // import { loadSongs } from "./loadSongs.js";
 import { loadArtists } from "./loadArtist.js";
-import { state } from "../index.js";
+import apikey from "../apikey.js";
 const mainArea = document.querySelector(".style-main");
 
 const genreUrlList = [
@@ -59,8 +59,7 @@ async function loadGenre(genres) {
       {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "810bbcad64msh20c194b589a92f1p12bdb0jsn6f4ab7b4077a",
+          "X-RapidAPI-Key": apikey,
           "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
         },
       }
