@@ -58,19 +58,23 @@ async function loadSongs(selectedArtist) {
 							<small>${songData.artist.name}</small>
 						</div>
 					`;
-					musicCard.addEventListener("click", async () => {
-						console.log(`Clicked on ${songData.title_short}, by ${songData.artist.name}`);
-						console.log(`Album ID: ${albumId}\nTrack ID: ${trackId},\nTrack Link: ${trackIdLink}`);
-						getData(albumId, trackId);
-					});
-					musicCardArea.appendChild(musicCard);
-				}
-			});
-		}
-		console.log(data.data);
-	} catch (error) {
-		console.error(error);
-	}
+          musicCard.addEventListener("click", async () => {
+            console.log(
+              `Clicked on ${songData.title_short}, by ${songData.artist.name}`
+            );
+            console.log(
+              `Album ID: ${albumId}\nTrack ID: ${trackId},\nTrack Link: ${trackIdLink}`
+            );
+
+            getData(albumId, trackId);
+          });
+          musicCardArea.appendChild(musicCard);
+        }
+      });
+    }
+    console.log(data.data);
+  } catch (error) {
+    console.error(error);
 }
 
 export { loadSongs };

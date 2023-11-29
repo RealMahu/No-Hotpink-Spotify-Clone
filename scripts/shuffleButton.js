@@ -1,7 +1,3 @@
-import getSongArry from "./SongArry.js";
-
-const songs = getSongArry();
-
 const suffleIcon = document.getElementById("shuffle");
 const labelForIcon = document.getElementById("shuffleicon");
 labelForIcon.innerHTML = `<i id="shuffle1" class="bi bi-shuffle"></i>`;
