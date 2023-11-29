@@ -76,5 +76,6 @@ async function loadSongs(selectedArtist) {
   } catch (error) {
     console.error(error);
 }
+}
 
 export { loadSongs };
