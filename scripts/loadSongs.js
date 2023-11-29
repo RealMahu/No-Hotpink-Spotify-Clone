@@ -1,12 +1,13 @@
 import { state } from "../index.js";
 import { loadArtists } from "./loadArtist.js";
-import getData from "./fetch.js";
+import { getData, playCurrentSong } from "./fetch.js";
+import apikey from "../apikey.js";
 
 const mainArea = document.querySelector(".style-main");
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "810bbcad64msh20c194b589a92f1p12bdb0jsn6f4ab7b4077a",
+    "X-RapidAPI-Key": apikey,
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
@@ -64,8 +65,7 @@ async function loadSongs(selectedArtist) {
             console.log(
               `Album ID: ${albumId}\nTrack ID: ${trackId},\nTrack Link: ${trackIdLink}`
             );
-            const ablid = await getData(albumId);
-            return ablid;
+            getData(albumId, trackId);
           });
           musicCardArea.appendChild(musicCard);
 

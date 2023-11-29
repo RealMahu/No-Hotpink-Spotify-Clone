@@ -1,12 +1,13 @@
 import { loadSongs } from "./loadSongs.js";
 import { state } from "../index.js";
 import { loadGenre, genreUrlList } from "./loadGenre.js";
+import apikey from "../apikey.js";
 
 const mainArea = document.querySelector(".style-main");
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "810bbcad64msh20c194b589a92f1p12bdb0jsn6f4ab7b4077a",
+    "X-RapidAPI-Key": apikey,
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
