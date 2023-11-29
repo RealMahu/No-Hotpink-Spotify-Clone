@@ -22,7 +22,7 @@ body {
   padding: 5px;
   gap: 5px;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr) 45px;
+  grid-template-rows: repeat(4, 1fr) 100px;
 }
 body .style-main {
   background-color: #111;
@@ -69,13 +69,14 @@ body .style-main .music-card-area .music-card {
   box-shadow: 3px 3px 5px rgb(0, 0, 0), inset 1px 1px 1px rgba(255, 255, 255, 0.3);
 }
 body .style-main .music-card-area .music-card img {
-  border-radius: 5px;
+  border-radius: 6px 6px 0px 0px;
 }
 body .style-main .music-card-area .music-card .card-btm {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  font-family: "Figtree", sans-serif;
 }
 body .style-main .music-card-area .music-card .card-btm p {
   width: 100%;
@@ -118,7 +119,7 @@ body .style-main .genre-card-area .genre-card img:hover {
 body .style-main .genre-card-area .genre-card p {
   color: #fff;
   font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Figtree", sans-serif;
 }
 body .style-main .artist-card-area {
   color: #fff;
@@ -132,23 +133,41 @@ body .style-main .artist-card-area .artist-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  background-color: #222;
+  box-shadow: 3px 3px 5px rgb(0, 0, 0), inset 1px 1px 1px rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
   cursor: pointer;
+  height: 200px;
+  width: 150px;
+  padding: 10px;
 }
-body .style-main .artist-card-area .artist-card img {
-  border-radius: 10%;
-  border: 3px solid rgb(255, 19, 137);
-  box-shadow: 3px 3px 5px rgb(0, 0, 0);
-}
-body .style-main .artist-card-area .artist-card img:hover {
+body .style-main .artist-card-area .artist-card:hover {
   scale: 1.1;
-  box-shadow: 5px 5px 5px rgb(0, 0, 0);
   transition: all 300ms ease-in-out;
 }
-body .style-main .artist-card-area .artist-card p {
+body .style-main .artist-card-area .artist-card hr {
+  border-bottom: 1px solid rgb(255, 19, 137);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+body .style-main .artist-card-area .artist-card img {
+  width: 100%;
+  height: 100%;
+}
+body .style-main .artist-card-area .artist-card .artist-name {
+  height: 27%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: keep-all;
+}
+body .style-main .artist-card-area .artist-card .artist-name p {
   color: #fff;
-  font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  font-family: "Figtree", sans-serif;
 }
 body .style-main .spacer-heading {
   display: flex;
@@ -165,6 +184,7 @@ body .style-main .spacer-heading .headWithBack {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body .style-main .spacer-heading .headWithBack h2 {
+  font-family: "Figtree", sans-serif;
   font-size: 25px;
   color: #fff;
 }
