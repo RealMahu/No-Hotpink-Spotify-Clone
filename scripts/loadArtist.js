@@ -43,7 +43,7 @@ async function loadArtists(selectedGenre) {
 	backBtn.addEventListener("click", () => {
 		prevArea.style.display = 'flex';
 		highArea.style.display = 'flex';
-		loadGenre(genreUrlList);
+		loadGenre(file.genreUrlList);
 	});
 	const displayedArtists = new Set();
 	try {
