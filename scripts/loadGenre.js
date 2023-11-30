@@ -4,41 +4,6 @@ const genreArea = document.querySelector(".genre-area");
 const highArea = document.querySelector(".highlight");
 const prevArea = document.querySelector(".preview");
 
-const genreUrlList = [
-  {
-    genre: "Jazz",
-    genreId: "129",
-  },
-  {
-    genre: "Rap/Hip Hop",
-    genreId: "116",
-  },
-  {
-    genre: "Heavy Metal",
-    genreId: "464",
-  },
-  {
-    genre: "Pop",
-    genreId: "132",
-  },
-  {
-    genre: "Rock",
-    genreId: "152",
-  },
-  {
-    genre: "Dance",
-    genreId: "113",
-  },
-  {
-    genre: "Electro",
-    genreId: "106",
-  },
-  {
-    genre: "Reggae",
-    genreId: "144",
-  },
-];
-
 async function loadGenre(genres) {
 	const headingGenre = document.createElement("div");
 	const genreCardArea = document.createElement("div");
@@ -94,4 +59,4 @@ function getRandomRGBColor() {
 	return `rgb(${red}, ${green}, ${blue})`;
 }
 
-export { loadGenre, genreUrlList };
+export { loadGenre };
