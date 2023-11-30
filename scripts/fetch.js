@@ -1,4 +1,5 @@
 import apikey from "../apikey.js";
+import { getTitleLength, getShuffleposition } from "./InfoCardsPosition.js";
 
 const defaultId = "491462925";
 
@@ -20,6 +21,7 @@ async function getData(albumId, trackId) {
   const Tracklist = result.tracks.data;
 
   let songs = Tracklist;
+  console.log(songs);
   const originalSongArry = songs;
   localStorage.setItem("originalSongArry", JSON.stringify(originalSongArry));
   const Picture = document.getElementById("pic");
@@ -54,6 +56,50 @@ async function getData(albumId, trackId) {
           const OriginArry = JSON.parse(
             localStorage.getItem("originalSongArry")
           );
+          songs = OriginArry;
+        }
+      });
+      const repeatInput = document.getElementById("repeat");
+
+      repeatInput.addEventListener("change", (e) => {
+        e.preventDefault();
+        if (repeatInput.checked) {
+          const currentSong = songs[currentSongIndex];
+
+          // Remove the currently playing song from the songs array
+          const indexToRemove = songs.indexOf(currentSong);
+          if (indexToRemove !== -1) {
+            songs.splice(indexToRemove, 1);
+          }
+
+          // Create a new array for repeated songs if it doesn't exist
+          const repeatedSongs = localStorage.getItem("repeatedSongs")
+            ? JSON.parse(localStorage.getItem("repeatedSongs"))
+            : [];
+
+          // Add the currently playing song to the repeated songs array
+          repeatedSongs.push(currentSong);
+
+          // Update the localStorage with the repeated songs array
+          localStorage.setItem("repeatedSongs", JSON.stringify(repeatedSongs));
+
+          // Set the songs variable to be equal to the repeatedSongs array
+          songs = repeatedSongs;
+
+          // Log the updated songs array
+          console.log("Songs after repeating:", songs);
+
+          // Continue with the rest of your code...
+        } else if (!repeatInput.checked) {
+          const OriginArry = JSON.parse(
+            localStorage.getItem("originalSongArry")
+          );
+          const clearedRepeatedSongs = [];
+          localStorage.setItem(
+            "repeatedSongs",
+            JSON.stringify(clearedRepeatedSongs)
+          );
+
           songs = OriginArry;
         }
       });
@@ -96,6 +142,20 @@ function playshuffle() {
   }
 }
 
+const repeatIcon = document.getElementById("repeat");
+const labelForIcon3 = document.getElementById("repeatIcon");
+labelForIcon3.innerHTML = `<i id="repeat1" class="bi bi-repeat"></i>`;
+
+function playRepeat() {
+  if (repeatIcon.checked) {
+    labelForIcon3.innerHTML = `<i id="repeat1" class="bi bi-repeat"></i>`;
+    labelForIcon3.style.color = "white";
+  } else {
+    labelForIcon3.innerHTML = `<i id="repeat1" class="bi bi-repeat"></i>`;
+    labelForIcon3.style.color = "gray";
+  }
+}
+
 async function updateTitle(cs) {
   const song = cs;
   function getTitle() {
@@ -103,6 +163,8 @@ async function updateTitle(cs) {
     const infotitle = document.getElementById("infoTitle");
     Title.innerText = song.title;
     infotitle.title = Title.innerText;
+    getTitleLength();
+    getShuffleposition();
   }
 
   getTitle();
@@ -192,4 +254,5 @@ export {
   updateTitle,
   updateArtistName,
   playshuffle,
+  playRepeat,
 };

@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="icon" type="image/x-icon" href="icon.ico" />
     <script type="module" src="index.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
+      crossorigin="anonymous" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
     <link rel="stylesheet" href="/styles/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
     <title>No Hotpink Spotify</title>
-</head>
-<body>
-	<main class="style-main"></main>
-	<aside class="aside-left"></aside>
-	<aside class="aside-right"></aside>
-	<footer>
+  </head>
+  <body>
+    <main class="style-main"></main>
+    <aside class="aside-left"></aside>
+    <aside class="aside-right"></aside>
+    <footer>
       <audio id="PlayerAudioSrc" src=""></audio>
       <div class="InfoCard_Container">
         <div id="heartInfo" class="infoCard_heart">
@@ -25,10 +35,13 @@
         <div id="shuffleInfo" class="infoCard_shuffle">
           <p>Enable Shuffle for The Album</p>
         </div>
+        <div id="muteInfo" class="infoCard_mute">
+          <p>Mute</p>
+        </div>
       </div>
 
       <div class="Player_Container">
-        <div class="left_Container">
+        <div id="leftContainer" class="left_Container">
           <img id="pic" src="" alt="" srcset="" />
           <div class="text_Container">
             <abbr id="infoTitle" title=""><h3 id="title"></h3></abbr>
@@ -38,7 +51,7 @@
             <i id="heart" class="bi bi-heart"></i>
           </div>
         </div>
-        <div class="mid_Container">
+        <div id="midContainer" class="mid_Container">
           <div class="buttons_Player">
             <label for="shuffle" id="shuffleicon"></label>
             <input type="checkbox" class="btn_Player_s" name="" id="shuffle" />
@@ -52,9 +65,13 @@
             <button id="next" class="btn_Player_r">
               <i id="nexts" class="bi bi-arrow-bar-right"></i>
             </button>
-            <button class="btn_Player_repeat">
-              <i class="bi bi-arrow-counterclockwise"></i>
-            </button>
+
+            <label for="repeat" id="repeatIcon"></label>
+            <input
+              type="checkbox"
+              class="btn_Player_repeat"
+              name=""
+              id="repeat" />
           </div>
           <div class="progress_Container">
             <div id="Song_Time" class="time"></div>
@@ -98,5 +115,5 @@
         </div>
       </div>
     </footer>
-</body>
+  </body>
 </html>

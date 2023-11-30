@@ -9,6 +9,7 @@ import {
   updateTitle,
   updateArtistName,
   playshuffle,
+  playRepeat,
 } from "./scripts/fetch.js";
 
 import { updateProgressBar } from "./scripts/Progress__Bar.js";
@@ -27,6 +28,7 @@ document.getElementById("play").addEventListener("click", playAudio);
 
 document.getElementById("heart").addEventListener("mouseover", heartMouseOver);
 document.getElementById("heart").addEventListener("mouseout", heartMouseOut);
+
 document
   .getElementById("shuffle1")
   .addEventListener("mouseover", shuffleMouseOver);
@@ -34,6 +36,8 @@ document.getElementById("shuffle").addEventListener("click", playshuffle);
 document
   .getElementById("shuffle1")
   .addEventListener("mouseout", shuffleMouseOut);
+
+document.getElementById("repeat").addEventListener("click", playRepeat);
 
 audioModule;
 document

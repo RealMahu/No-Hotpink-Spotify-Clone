@@ -19,10 +19,10 @@ body {
   background-color: #000;
   height: 100dvh;
   display: grid;
-  padding: 5px;
+  padding: 5px 5px 0px 5px;
   gap: 5px;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr) 100px;
+  grid-template-rows: repeat(4, 1fr) 98px;
 }
 body .style-main {
   background-color: #111;
@@ -219,41 +219,55 @@ body footer {
   left: 0;
   background-color: rgb(255, 19, 137);
 }
-body footer .InfoCard_Container {
-  display: flex;
-  flex-direction: row;
-}
-body footer .InfoCard_Container .infoCard_heart {
+body footer .infoCard_heart {
   display: none;
-  z-index: 10;
-  position: relative;
-  top: 20px;
-  left: 235px;
+  z-index: 999;
+  position: absolute;
+  top: -25px;
+  left: 0px;
   background-color: #4b4b4b;
   width: 170px;
   justify-content: center;
   padding: 5px;
   border-radius: 5px;
 }
-body footer .InfoCard_Container .infoCard_heart p {
+body footer .infoCard_heart p {
   color: white;
   font-size: 16px;
   font-weight: 400;
   font-family: "Figtree", sans-serif;
 }
-body footer .InfoCard_Container .infoCard_shuffle {
+body footer .infoCard_shuffle {
   display: none;
-  z-index: 10;
-  position: relative;
-  top: 20px;
-  left: 335px;
+  z-index: 999;
+  top: -25px;
+  position: absolute;
+  left: 0px;
   background-color: #4b4b4b;
   width: 220px;
   justify-content: center;
   padding: 5px;
   border-radius: 5px;
 }
-body footer .InfoCard_Container .infoCard_shuffle p {
+body footer .infoCard_shuffle p {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Figtree", sans-serif;
+}
+body footer .infoCard_mute {
+  display: none;
+  z-index: 999;
+  top: -25px;
+  position: absolute;
+  left: 0px;
+  background-color: #4b4b4b;
+  width: 50px;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+body footer .infoCard_mute p {
   color: white;
   font-size: 16px;
   font-weight: 400;
@@ -289,6 +303,7 @@ body footer .Player_Container .left_Container .text_Container h3 {
 }
 body footer .Player_Container .left_Container .text_Container h3:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 body footer .Player_Container .left_Container .text_Container p {
   color: gray;
@@ -298,6 +313,7 @@ body footer .Player_Container .left_Container .text_Container p {
 body footer .Player_Container .left_Container .text_Container p:hover {
   color: white;
   text-decoration: underline;
+  cursor: pointer;
 }
 body footer .Player_Container .left_Container .heart_Container {
   display: flex;
@@ -311,6 +327,7 @@ body footer .Player_Container .left_Container .heart_Container {
 }
 body footer .Player_Container .left_Container .heart_Container .bi-heart:hover {
   color: white;
+  cursor: pointer;
 }
 body footer .Player_Container .mid_Container {
   display: flex;
@@ -320,9 +337,9 @@ body footer .Player_Container .mid_Container {
 body footer .Player_Container .mid_Container .buttons_Player {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 300px;
-  margin-left: 20px;
+  margin-left: 65px;
   height: 60px;
 }
 body footer .Player_Container .mid_Container .buttons_Player input[type=checkbox].btn_Player_s {
@@ -334,6 +351,10 @@ body footer .Player_Container .mid_Container .buttons_Player #shuffleicon {
   margin-top: 30px;
   font-size: 20px;
   margin-right: 20px;
+}
+body footer .Player_Container .mid_Container .buttons_Player #shuffleicon .bi-shuffle:hover {
+  color: #fff;
+  cursor: pointer;
 }
 body footer .Player_Container .mid_Container .buttons_Player .btn_Player_l {
   background: none;
@@ -365,17 +386,23 @@ body footer .Player_Container .mid_Container .buttons_Player .btn_Player_r {
 body footer .Player_Container .mid_Container .buttons_Player .btn_Player_r:hover #nexts {
   color: white;
 }
-body footer .Player_Container .mid_Container .buttons_Player .btn_Player_repeat {
+body footer .Player_Container .mid_Container .buttons_Player input[type=checkbox].btn_Player_repeat {
+  display: none;
+}
+body footer .Player_Container .mid_Container .buttons_Player #repeatIcon {
   background: none;
   color: gray;
-  margin-top: 25px;
+  margin-top: 30px;
   font-size: 20px;
   margin-right: 20px;
+}
+body footer .Player_Container .mid_Container .buttons_Player #repeatIcon .bi-repeat:hover {
+  color: #fff;
 }
 body footer .Player_Container .mid_Container .progress_Container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 350px;
   margin-bottom: 20px;
 }
@@ -488,6 +515,14 @@ body footer .Player_Container .right_Container #muteicon {
   margin-top: 30px;
   font-size: 26px;
 }
+body footer .Player_Container .right_Container #muteicon .bi-volume-mute:hover {
+  color: white;
+  cursor: pointer;
+}
+body footer .Player_Container .right_Container #muteicon .bi-volume-off:hover {
+  color: white;
+  cursor: pointer;
+}
 body footer .Player_Container .right_Container #player {
   min-width: 70px;
   height: 5px;
@@ -542,7 +577,10 @@ body footer .Player_Container .btn_right_f {
 }
 
 @media screen and (min-width: 900px) {
-  .Player_Container .mid_Container {
+  body footer .Player_Container .left_Container {
+    width: 100%;
+  }
+  body footer .Player_Container .mid_Container {
     width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */
