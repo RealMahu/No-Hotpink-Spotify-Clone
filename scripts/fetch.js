@@ -13,37 +13,49 @@ const options = {
 
 async function getData(albumId, trackId) {
   const idToUse = albumId || defaultId;
-  console.log(albumId);
+
   const response = await fetch(`${url}${idToUse}`, options);
   const result = await response.json();
-  console.log(result);
+
   const Tracklist = result.tracks.data;
-  console.log(Tracklist);
+
   let songs = Tracklist;
   const originalSongArry = songs;
   localStorage.setItem("originalSongArry", JSON.stringify(originalSongArry));
   const Picture = document.getElementById("pic");
   Picture.src = result.cover_small;
   const foundTrack = result.tracks.data.find((track) => track.id === trackId);
-  console.log(foundTrack);
+
   if (foundTrack) {
     if (Tracklist.indexOf(foundTrack) !== -1) {
-      console.log("ist da");
       let currentSongIndex = Tracklist.indexOf(foundTrack);
-      console.log(currentSongIndex);
+
       const prevBtn = document.getElementById("prev");
       prevBtn.addEventListener("click", (e) => {
         e.preventDefault();
         currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
         playCurrentSong(songs, currentSongIndex);
-        console.log(currentSongIndex);
       });
       const nextBtn = document.getElementById("next");
       nextBtn.addEventListener("click", (e) => {
         e.preventDefault();
         currentSongIndex = (currentSongIndex + 1) % songs.length;
         playCurrentSong(songs, currentSongIndex);
-        console.log(currentSongIndex);
+      });
+      const shuffleInput = document.getElementById("shuffle");
+
+      shuffleInput.addEventListener("change", (e) => {
+        if (shuffleInput.checked) {
+          for (let i = songs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [songs[i], songs[j]] = [songs[j], songs[i]];
+          }
+        } else if (!shuffleInput.checked) {
+          const OriginArry = JSON.parse(
+            localStorage.getItem("originalSongArry")
+          );
+          songs = OriginArry;
+        }
       });
 
       playCurrentSong(songs, currentSongIndex);
@@ -61,7 +73,6 @@ const shuffleInput = document.getElementById("shuffle"); // Assuming you have an
 
 async function playCurrentSong(songs1, csi) {
   const currentSong = await songs1[csi];
-  console.log("hallo", currentSong);
   updateTitle(currentSong);
   updateArtistName(currentSong);
   audioPlayer.src = currentSong.preview;
@@ -70,33 +81,6 @@ async function playCurrentSong(songs1, csi) {
 }
 
 //----------------------------------------------------------
-
-function playSong(songs5, currentSongIndex5) {
-  const playInput = document.getElementById("play");
-
-  if (playInput.checked) {
-    // Toggle-Button für das Abspielen ist aktiviert
-    if (shuffleInput.checked) {
-      // Toggle-Button für das Mischen ist ebenfalls aktiviert
-      shuffleSongs();
-    } else if (!shuffleInput.checked) {
-      const OriginArry = JSON.parse(localStorage.getItem("originalSongArry"));
-      songs5 = OriginArry;
-      console.log(songs5);
-    }
-    playAudio();
-  } else {
-    // Toggle-Button für das Abspielen ist deaktiviert
-    playCurrentSong(songs5, currentSongIndex5);
-  }
-}
-
-function shuffleSongs() {
-  for (let i = songs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [songs[i], songs[j]] = [songs[j], songs[i]];
-  }
-}
 
 const suffleIcon = document.getElementById("shuffle");
 const labelForIcon2 = document.getElementById("shuffleicon");
@@ -111,16 +95,6 @@ function playshuffle() {
     labelForIcon2.style.color = "gray";
   }
 }
-
-// Event Listener für den shuffle-Button hinzufügen
-shuffleInput.addEventListener("change", () => {
-  if (shuffleInput.checked) {
-    shuffleSongs();
-    console.log(songs);
-  } else {
-    songs = JSON.parse(localStorage.getItem("originalSongArry"));
-  }
-});
 
 async function updateTitle(cs) {
   const song = cs;
@@ -213,7 +187,6 @@ setInterval(checkTime, 1000);
 export {
   getData,
   playCurrentSong,
-  // playSong,
   getTrackSrc,
   playAudio,
   updateTitle,
