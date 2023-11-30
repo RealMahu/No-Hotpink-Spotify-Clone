@@ -46,7 +46,7 @@ async function loadGenre(genres) {
   headingGenre.classList.add("spacer-heading");
   headingGenre.innerHTML = `
 		<div class="headWithBack">
-			<h2>Browse all</h2>
+			<h2>Browse all Genres</h2>
 		</div>
 		<hr>
 	`;
@@ -66,7 +66,7 @@ async function loadGenre(genres) {
     );
     let data = await response.json();
     // console.log(data);
-
+	const randomColor = getRandomRGBColor();
     const genreCard = document.createElement("div");
     genreCard.classList.add("genre-card");
     genreCard.innerHTML = `
@@ -74,12 +74,21 @@ async function loadGenre(genres) {
 			<p>${data.name}</p>
 		`;
 
+	genreCard.style.backgroundColor = randomColor;
+
     genreCard.addEventListener("click", () => {
-      console.log(`Clicked on Genre: ${data.name}`);
-      loadArtists(`${data.name}`);
+		console.log(`Clicked on Genre: ${data.name}`);
+		loadArtists(`${data.name}`);
     });
     genreCardArea.appendChild(genreCard);
-  });
+	});
+}
+
+function getRandomRGBColor() {
+	const red = Math.floor(Math.random() * 256);
+	const green = Math.floor(Math.random() * 256);
+	const blue = Math.floor(Math.random() * 256);
+	return `rgb(${red}, ${green}, ${blue})`;
 }
 
 export { loadGenre, genreUrlList };

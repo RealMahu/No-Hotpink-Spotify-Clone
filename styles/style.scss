@@ -22,13 +22,14 @@ body {
   background-color: #000;
   height: 100dvh;
   display: grid;
-  padding: 5px;
+  padding: 5px 5px 0px 5px;
   gap: 5px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr) 100px;
 
   .style-main {
-    background-color: #111;
+    background: rgb(68,68,68);
+	background: linear-gradient(180deg, rgba(68,68,68,1) 0%, rgb(10, 10, 10) 100%);
     border-radius: 5px;
     padding: 5px;
     grid-area: 1 / 2 / 5 / 5;
@@ -62,15 +63,15 @@ body {
         flex-direction: column;
         gap: 10px;
         width: 150px;
-        height: 200px;
+        height: 220px;
         background-color: #222;
         border-radius: 5px;
-        padding: 5px;
+        padding: 10px;
         cursor: pointer;
         box-shadow: 3px 3px 5px rgba(0, 0, 0, 1),
           inset 1px 1px 1px rgba(255, 255, 255, 0.3);
         img {
-          border-radius: 6px 6px 0px 0px;
+          border-radius: 6px;
         }
         .card-btm {
           display: flex;
@@ -97,32 +98,40 @@ body {
       }
     }
     .genre-card-area {
-      display: flex;
-      gap: 25px;
-      justify-content: center;
-      flex-wrap: wrap;
-      .genre-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        cursor: pointer;
-        img {
-          border-radius: 10%;
-          border: 3px solid $accent-color;
-          box-shadow: 3px 3px 5px rgba(0, 0, 0, 1);
-          &:hover {
-            scale: 1.1;
-            box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
-            transition: all 300ms ease-in-out;
-          }
-        }
-        p {
-          color: #fff;
-          font-size: 14px;
-          font-family: "Figtree", sans-serif;
-        }
-      }
+		display: flex;
+		gap: 25px;
+		justify-content: center;
+		flex-wrap: wrap;
+		.genre-card {
+			cursor: pointer;
+			width: 150px;
+			height: 150px;
+			overflow: hidden;
+			position: relative;
+			border-radius: 5px;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+			img {
+				position: absolute;
+				width: 60%;
+				rotate: 30deg;
+				bottom: -5px;
+				right: -10px;
+			}
+			p {
+				position: absolute;
+				top: 5px;
+				left: 7px;
+				color: #fff;
+				font-size: 16px;
+				font-weight: bold;
+				font-family: "Figtree", sans-serif;
+			}
+			&:hover {
+				scale: 1.05;
+				box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4);
+				transition: all 300ms ease;
+			}
+		}
     }
     .artist-card-area {
       color: #fff;
@@ -135,7 +144,7 @@ body {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			// gap: 10px;
+			gap: 5px;
 			background-color: #222;
 			box-shadow: 3px 3px 5px rgba(0, 0, 0, 1),
 			inset 1px 1px 1px rgba(255, 255, 255, 0.3);
@@ -149,14 +158,9 @@ body {
 				scale: 1.1;
 				transition: all 300ms ease-in-out;
 			}
-			hr{
-				border-bottom: 1px solid $accent-color;
-				box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
-				width: 100%;
-			}
 			img {
 				width: 100%;
-				height: 100%;
+				border-radius: 6px;
 			}
 			.artist-name{
 				height: 27%;
