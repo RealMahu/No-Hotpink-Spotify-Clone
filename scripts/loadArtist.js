@@ -228,7 +228,6 @@ async function loadArtists(selectedGenre) {
             artistCard.classList.add("artist-card");
             artistCard.innerHTML = `
 				<img src="${artistImage}" alt="">
-				<hr>
 				<div class="artist-name">
 					<p>${artistName}</p>
 				</div>
@@ -251,9 +250,9 @@ async function loadArtists(selectedGenre) {
 }
 
 function isArtistInGenre(artistName, genreArtists) {
-  return genreArtists.some(
-    (genreArtist) => genreArtist.toLowerCase() === artistName
-  );
+	return genreArtists.some(
+		(genreArtist) => genreArtist.toLowerCase() === artistName
+	);
 }
 
 export { loadArtists };
