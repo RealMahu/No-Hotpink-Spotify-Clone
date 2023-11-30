@@ -19,7 +19,7 @@ const audioModule = (function () {
 
   function setVolume(volume) {
     audioElement.volume = volume / 100;
-    console.log("Volume:", volume);
+
     if (volume === 0) {
       labelForIcon.innerHTML = `<i class="bi bi-volume-mute"></i>`;
     } else if (volume <= 33) {
