@@ -2,7 +2,7 @@
 let genreArtists = [
 	{
 		genreName: "Rap/Hip Hop",
-		genreArtists: [ "$uicideboy$", "Brennan Savage", "Night Lovell", "Sido", "Eminem", "2Pac", "Apache 207", "Kontra K", "Rin", "Juice Wrld", "Kendrick Lamar", "21 Savage", "Jay-Z", "Marteria", "Samy Deluxe", "KC Rebell", "Bonez MC", "Casper", "Capital Bra", "Samra", "Lil Peep", "GZUZ",
+		genreArtists: [ "$uicideboy$", "Brennan Savage", "Night Lovell", "Sido", "Eminem", "2Pac", "Apache 207", "Kontra K", "Rin", "Juice Wrld", "Kendrick Lamar", "21 Savage", "Jay-Z", "Marteria", "Samy Deluxe", "KC Rebell", "Bonez MC", "Casper", "Capital Bra", "Samra", "Lil Peep", "GZUZ", "50 Cent"
 		],
 	},
 	{
@@ -17,7 +17,7 @@ let genreArtists = [
 	},
 	{
 		genreName: "Pop",
-		genreArtists: [ "Ed Sheeran", "Drake", "Alicia Keys", "Miley Cyrus", "Silbermond", "Taylor Swift", "Mark Forster", "LEA", "Shakira", "Nico Santos", "Katy Perry", "Herbert Grönemeyer", "Dua Lipa", "Labrinth", "Beyoncé", "Ellie Goulding",
+		genreArtists: [ "Ed Sheeran", "Drake", "Alicia Keys", "Miley Cyrus", "Silbermond", "Taylor Swift", "Mark Forster", "LEA", "Shakira", "Nico Santos", "Katy Perry", "Herbert Grönemeyer", "Dua Lipa", "Labrinth", "Beyoncé", "Ellie Goulding", "Whitney Houston"
 		],
 	},
 	{

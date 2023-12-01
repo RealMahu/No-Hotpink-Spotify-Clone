@@ -1,19 +1,53 @@
 import { loadGenre } from "./loadGenre.js";
+import { loadSearchSongs } from "./loadSearchSongs.js";
 import { file } from "../data/data2Fetch.js";
 
 const newList = file.genreUrlList;
 const highArea = document.querySelector(".highlight");
 const prevArea = document.querySelector(".preview");
+const searchArea = document.querySelector(".search-area");
 const dynGreet = document.querySelector(".dynamic-greeting");
+const searchSubBtn = document.getElementById("searchSubBtn");
+const searchBtn = document.getElementById("searchBtn");
+const homeBtn = document.getElementById("homeBtn");
+const searchValue = document.getElementById("searchbar");
 
 function loadMain() {
 	let currentTime = new Date();
 	let currentHour = (currentTime.getHours());
 	let greeting = getGreeting(currentHour);
 	dynGreet.innerText = greeting;
-
+	// searchArea.style.display = 'none';
 	loadGenre(newList);
-}
+};
+
+homeBtn.addEventListener("click", (e) => {
+	e.preventDefault();
+	prevArea.style.display = 'flex';
+	loadMain();
+})
+
+searchBtn.addEventListener("click", () => {
+	if (searchArea.style.display === 'block'){
+		console.log("Search Btn Clicked");
+		searchArea.style.display = 'none';
+	} else {
+		searchArea.style.display = 'block';
+	}
+});
+
+searchSubBtn.addEventListener("click", (e) => {
+	e.preventDefault();
+	const search = searchValue.value;
+	if (!search) {
+		alert("input is empty")
+	} else {
+		searchValue.value = '';
+		console.log(search);
+		prevArea.style.display = 'none';
+		loadSearchSongs(search)
+	}
+});
 
 function getGreeting(hour) {
 	let greeting = '';

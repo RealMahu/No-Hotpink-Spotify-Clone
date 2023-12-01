@@ -3,6 +3,7 @@ import apikey from "../apikey.js";
 const genreArea = document.querySelector(".genre-area");
 const highArea = document.querySelector(".highlight");
 const prevArea = document.querySelector(".preview");
+const searchArea = document.querySelector(".search-area");
 
 async function loadGenre(genres) {
 	const headingGenre = document.createElement("div");
@@ -46,6 +47,7 @@ async function loadGenre(genres) {
 		console.log(`Clicked on Genre: ${data.name}`);
 		prevArea.style.display = 'none';
 		highArea.style.display = 'none';
+		searchArea.style.display = 'none';
 		loadArtists(`${data.name}`);
     });
     genreCardArea.appendChild(genreCard);

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
+:root {
+  --accent-color: #2ecc71;
+}
+
 *,
 *::before,
 *::after {
@@ -21,7 +25,7 @@ body {
   display: grid;
   padding: 5px 5px 0px 5px;
   gap: 5px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 300px repeat(3, 1fr) 300px;
   grid-template-rows: repeat(4, 1fr) 100px;
 }
 body .main-area {
@@ -47,7 +51,7 @@ body .main-area::-webkit-scrollbar {
 body .main-area::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: rgb(255, 19, 137);
+  background-color: var(--accent-color);
 }
 body .main-area .music-card-area {
   color: #fff;
@@ -153,8 +157,10 @@ body .main-area .artist-card-area .artist-card {
   padding: 10px;
 }
 body .main-area .artist-card-area .artist-card:hover {
-  scale: 1.1;
-  transition: all 300ms ease-in-out;
+  background-color: #333;
+  scale: 1.05;
+  transition: background-color 300ms ease-in-out;
+  transition: scale 300ms ease-in-out;
 }
 body .main-area .artist-card-area .artist-card img {
   width: 100%;
@@ -195,24 +201,62 @@ body .main-area .spacer-heading .headWithBack h2 {
 }
 body .main-area .spacer-heading .headWithBack p {
   padding: 5px 10px;
-  background-color: rgb(255, 19, 137);
+  background-color: var(--accent-color);
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
   color: #fff;
   cursor: pointer;
 }
 body .main-area .spacer-heading hr {
-  border-bottom: 1px solid rgb(255, 19, 137);
+  border-bottom: 1px solid var(--accent-color);
   box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
   border-radius: 50px;
 }
+body .main-area .search-area {
+  display: none;
+}
+body .main-area .search-area .form-area {
+  width: 100%;
+}
+body .main-area .search-area .form-area form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+body .main-area .search-area .form-area form #searchbar {
+  min-width: 40%;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: "Figtree", sans-serif;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid var(--accent-color);
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+body .main-area .search-area .form-area form #searchSubBtn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-weight: bold;
+  font-family: "Figtree", sans-serif;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+body .main-area .search-area .form-area form #searchSubBtn:hover {
+  background-color: #fff;
+  color: var(--accent-color);
+  transition: all 300ms ease-in-out;
+}
 body .aside-left {
-  background-color: #444;
+  background-color: #111;
   border-radius: 5px;
   grid-area: 1/1/5/2;
 }
 body .aside-right {
-  background-color: #555;
+  background-color: #111;
   border-radius: 5px;
   grid-area: 1/5/5/6;
 }
@@ -222,7 +266,7 @@ body footer {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgb(255, 19, 137);
+  background-color: var(--accent-color);
 }
 body footer .InfoCard_Container {
   display: flex;
@@ -412,7 +456,7 @@ body footer .Player_Container .mid_Container .progress_Container .time-tracker .
   border-radius: 15px;
 }
 body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-range-min {
-  background-color: #2ecc71;
+  background-color: var(--accent-color);
 }
 body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-handle {
   visibility: visible;
@@ -510,7 +554,7 @@ body footer .Player_Container .right_Container #player #volume {
   border-radius: 15px;
 }
 body footer .Player_Container .right_Container #player #volume:hover .ui-slider-range-min {
-  background-color: #2ecc71;
+  background-color: var(--accent-color);
 }
 body footer .Player_Container .right_Container #player #volume:hover .ui-slider-handle {
   visibility: visible;

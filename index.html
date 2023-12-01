@@ -16,17 +16,34 @@
 <body>
 	<main class="main-area">
 		<div class="highlight"></div>
+		<div class="search-area">
+			<div class="spacer-heading">
+				<div class="headWithBack">
+					<h2>Search</h2>
+				</div>
+				<hr>
+			</div>
+			<div class="form-area">
+				<form action="">
+					<input type="text" name="searchbar" id="searchbar" placeholder="Search for artists">
+					<button type="submit" id="searchSubBtn">Search</button>
+				</form>
+			</div>
+		</div>
 		<div class="preview">
 			<div class="spacer-heading">
 				<div class="headWithBack">
-					<h2 class="dynamic-greeting">Good afternoon</h2>
+					<h2 class="dynamic-greeting"></h2>
 				</div>
 				<hr>
 			</div>
 		</div>
 		<div class="genre-area"></div>
 	</main>
-	<aside class="aside-left"></aside>
+	<aside class="aside-left">
+		<p id="homeBtn" style="color: #fff; padding: 5px 10px; cursor: pointer;">Home</p>
+		<p id="searchBtn" style="color: #fff; padding: 5px 10px; cursor: pointer; background-color: #222; width: fit-content;">Search</p>
+	</aside>
 	<aside class="aside-right"></aside>
 	<footer>
       <audio id="PlayerAudioSrc" src=""></audio>
