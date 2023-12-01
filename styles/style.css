@@ -268,41 +268,55 @@ body footer {
   left: 0;
   background-color: var(--accent-color);
 }
-body footer .InfoCard_Container {
-  display: flex;
-  flex-direction: row;
-}
-body footer .InfoCard_Container .infoCard_heart {
+body footer .infoCard_heart {
   display: none;
-  z-index: 10;
-  position: relative;
-  top: 20px;
-  left: 235px;
+  z-index: 999;
+  position: absolute;
+  top: -25px;
+  left: 0px;
   background-color: #4b4b4b;
   width: 170px;
   justify-content: center;
   padding: 5px;
   border-radius: 5px;
 }
-body footer .InfoCard_Container .infoCard_heart p {
+body footer .infoCard_heart p {
   color: white;
   font-size: 16px;
   font-weight: 400;
   font-family: "Figtree", sans-serif;
 }
-body footer .InfoCard_Container .infoCard_shuffle {
+body footer .infoCard_shuffle {
   display: none;
-  z-index: 10;
-  position: relative;
-  top: 20px;
-  left: 335px;
+  z-index: 999;
+  top: -25px;
+  position: absolute;
+  left: 0px;
   background-color: #4b4b4b;
   width: 220px;
   justify-content: center;
   padding: 5px;
   border-radius: 5px;
 }
-body footer .InfoCard_Container .infoCard_shuffle p {
+body footer .infoCard_shuffle p {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Figtree", sans-serif;
+}
+body footer .infoCard_mute {
+  display: none;
+  z-index: 999;
+  top: -25px;
+  position: absolute;
+  left: 0px;
+  background-color: #4b4b4b;
+  width: 50px;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+body footer .infoCard_mute p {
   color: white;
   font-size: 16px;
   font-weight: 400;
@@ -338,6 +352,7 @@ body footer .Player_Container .left_Container .text_Container h3 {
 }
 body footer .Player_Container .left_Container .text_Container h3:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 body footer .Player_Container .left_Container .text_Container p {
   color: gray;
@@ -347,88 +362,101 @@ body footer .Player_Container .left_Container .text_Container p {
 body footer .Player_Container .left_Container .text_Container p:hover {
   color: white;
   text-decoration: underline;
+  cursor: pointer;
 }
-body footer .Player_Container .left_Container .heart_Container {
-  display: flex;
-  flex-direction: column;
-  color: grey;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5px;
-  font-size: 18px;
+body footer .Player_Container .left_Container input[type=checkbox].heart_Container1 {
+  display: none;
+}
+body footer .Player_Container .left_Container #hearticon {
+  background: none;
+  color: gray;
+  margin-top: 30px;
+  font-size: 20px;
   margin-right: 20px;
+  margin-left: 10px;
 }
-body footer .Player_Container .left_Container .heart_Container .bi-heart:hover {
-  color: white;
+body footer .Player_Container .left_Container #hearticon .bi-heart:hover {
+  color: #fff;
+  cursor: pointer;
 }
-body footer .Player_Container .mid_Container {
+body footer .mid_Container {
   display: flex;
   flex-direction: column;
   min-width: 330px;
 }
-body footer .Player_Container .mid_Container .buttons_Player {
+body footer .mid_Container .buttons_Player {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 300px;
-  margin-left: 20px;
+  margin-left: 65px;
   height: 60px;
 }
-body footer .Player_Container .mid_Container .buttons_Player input[type=checkbox].btn_Player_s {
+body footer .mid_Container .buttons_Player input[type=checkbox].btn_Player_s {
   display: none;
 }
-body footer .Player_Container .mid_Container .buttons_Player #shuffleicon {
+body footer .mid_Container .buttons_Player #shuffleicon {
   background: none;
   color: gray;
   margin-top: 30px;
   font-size: 20px;
   margin-right: 20px;
 }
-body footer .Player_Container .mid_Container .buttons_Player .btn_Player_l {
+body footer .mid_Container .buttons_Player #shuffleicon .bi-shuffle:hover {
+  color: #fff;
+  cursor: pointer;
+}
+body footer .mid_Container .buttons_Player .btn_Player_l {
   background: none;
   color: gray;
   margin-top: 25px;
   font-size: 25px;
   margin-right: 20px;
 }
-body footer .Player_Container .mid_Container .buttons_Player .btn_Player_l:hover #prevs {
+body footer .mid_Container .buttons_Player .btn_Player_l:hover #prevs {
   color: #fff;
 }
-body footer .Player_Container .mid_Container .buttons_Player input[type=checkbox].btn_Player_pl {
+body footer .mid_Container .buttons_Player input[type=checkbox].btn_Player_pl {
   display: none;
 }
-body footer .Player_Container .mid_Container .buttons_Player #playicon {
+body footer .mid_Container .buttons_Player #playicon {
   background: none;
   color: white;
   margin-top: 20px;
   font-size: 40px;
   margin-right: 20px;
 }
-body footer .Player_Container .mid_Container .buttons_Player .btn_Player_r {
+body footer .mid_Container .buttons_Player .btn_Player_r {
   background: none;
   color: gray;
   margin-top: 25px;
   font-size: 25px;
   margin-right: 20px;
 }
-body footer .Player_Container .mid_Container .buttons_Player .btn_Player_r:hover #nexts {
+body footer .mid_Container .buttons_Player .btn_Player_r:hover #nexts {
   color: white;
 }
-body footer .Player_Container .mid_Container .buttons_Player .btn_Player_repeat {
+body footer .mid_Container .buttons_Player input[type=checkbox].btn_Player_repeat {
+  display: none;
+}
+body footer .mid_Container .buttons_Player #repeatIcon {
   background: none;
   color: gray;
-  margin-top: 25px;
+  margin-top: 30px;
   font-size: 20px;
   margin-right: 20px;
 }
-body footer .Player_Container .mid_Container .progress_Container {
+body footer .mid_Container .buttons_Player #repeatIcon .bi-repeat:hover {
+  color: #fff;
+}
+body footer .mid_Container .progress_Container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 350px;
   margin-bottom: 20px;
 }
-body footer .Player_Container .mid_Container .progress_Container .time {
+body footer .mid_Container .progress_Container .time {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -438,7 +466,7 @@ body footer .Player_Container .mid_Container .progress_Container .time {
   margin-right: 10px;
   font-size: 12px;
 }
-body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer {
+body footer .mid_Container .progress_Container .time-tracker .timer {
   position: relative;
   float: left;
   width: 90%;
@@ -446,7 +474,7 @@ body footer .Player_Container .mid_Container .progress_Container .time-tracker .
   width: 260px;
   cursor: pointer;
 }
-body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress {
+body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress {
   top: 13px;
   position: absolute;
   margin: 0 auto;
@@ -458,10 +486,10 @@ body footer .Player_Container .mid_Container .progress_Container .time-tracker .
 body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-range-min {
   background-color: var(--accent-color);
 }
-body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-handle {
+body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-handle {
   visibility: visible;
 }
-body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress .ui-slider-range-min {
+body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress .ui-slider-range-min {
   height: 5px;
   width: 0;
   position: absolute;
@@ -470,7 +498,7 @@ body footer .Player_Container .mid_Container .progress_Container .time-tracker .
   border-radius: 10px;
   outline: none;
 }
-body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress .ui-slider-handle {
+body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress .ui-slider-handle {
   top: 2.5px;
   width: 14px;
   height: 14px;
@@ -483,7 +511,7 @@ body footer .Player_Container .mid_Container .progress_Container .time-tracker .
   z-index: 100;
   visibility: hidden;
 }
-body footer .Player_Container .mid_Container .progress_Container .TimeFull {
+body footer .mid_Container .progress_Container .TimeFull {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -493,57 +521,65 @@ body footer .Player_Container .mid_Container .progress_Container .TimeFull {
   margin-right: 10px;
   font-size: 12px;
 }
-body footer .Player_Container .right_Container {
+body footer .right_Container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
 }
-body footer .Player_Container .right_Container .btn_right_v {
+body footer .right_Container .btn_right_v {
   background: none;
   color: gray;
   margin-top: 30px;
   font-size: 18px;
   margin-right: 15px;
 }
-body footer .Player_Container .right_Container .btn_right_l {
+body footer .right_Container .btn_right_l {
   background: none;
   color: gray;
   margin-top: 30px;
   font-size: 22px;
   margin-right: 15px;
 }
-body footer .Player_Container .right_Container .btn_right_q {
+body footer .right_Container .btn_right_q {
   background: none;
   color: gray;
   margin-top: 30px;
   font-size: 26px;
   margin-right: 15px;
 }
-body footer .Player_Container .right_Container .btn_right_d {
+body footer .right_Container .btn_right_d {
   background: none;
   color: gray;
   margin-top: 30px;
   font-size: 24px;
   margin-right: 15px;
 }
-body footer .Player_Container .right_Container input[type=checkbox].btn_right_mute {
+body footer .right_Container input[type=checkbox].btn_right_mute {
   display: none;
 }
-body footer .Player_Container .right_Container #muteicon {
+body footer .right_Container #muteicon {
   background: none;
   color: gray;
   margin-top: 30px;
   font-size: 26px;
 }
-body footer .Player_Container .right_Container #player {
+body footer .right_Container #muteicon .bi-volume-mute:hover {
+  color: white;
+  cursor: pointer;
+}
+body footer .right_Container #muteicon .bi-volume-off:hover {
+  color: white;
+  cursor: pointer;
+}
+body footer .right_Container #player {
   min-width: 70px;
   height: 5px;
   position: relative;
   margin: 0 auto;
 }
-body footer .Player_Container .right_Container #player #volume {
+body footer .right_Container #player #volume {
   top: 15px;
   position: absolute;
   left: 5px;
@@ -556,10 +592,10 @@ body footer .Player_Container .right_Container #player #volume {
 body footer .Player_Container .right_Container #player #volume:hover .ui-slider-range-min {
   background-color: var(--accent-color);
 }
-body footer .Player_Container .right_Container #player #volume:hover .ui-slider-handle {
+body footer .right_Container #player #volume:hover .ui-slider-handle {
   visibility: visible;
 }
-body footer .Player_Container .right_Container #player #volume .ui-slider-range-min {
+body footer .right_Container #player #volume .ui-slider-range-min {
   height: 5px;
   width: 0px;
   position: absolute;
@@ -568,7 +604,7 @@ body footer .Player_Container .right_Container #player #volume .ui-slider-range-
   border-radius: 10px;
   outline: none;
 }
-body footer .Player_Container .right_Container #player #volume .ui-slider-handle {
+body footer .right_Container #player #volume .ui-slider-handle {
   top: 3px;
   width: 14px;
   height: 14px;
@@ -581,7 +617,7 @@ body footer .Player_Container .right_Container #player #volume .ui-slider-handle
   z-index: 100;
   visibility: hidden;
 }
-body footer .Player_Container .btn_right_f {
+body footer .btn_right_f {
   background: none;
   color: gray;
   margin-top: 30px;
@@ -591,7 +627,10 @@ body footer .Player_Container .btn_right_f {
 }
 
 @media screen and (min-width: 900px) {
-  .Player_Container .mid_Container {
+  body footer .Player_Container .left_Container {
+    width: 100%;
+  }
+  body footer .Player_Container .mid_Container {
     width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

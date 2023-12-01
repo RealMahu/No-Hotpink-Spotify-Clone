@@ -21,13 +21,13 @@ const audioModule = (function () {
     audioElement.volume = volume / 100;
 
     if (volume === 0) {
-      labelForIcon.innerHTML = `<i class="bi bi-volume-mute"></i>`;
+      labelForIcon.innerHTML = `<i id="muteX" class="bi bi-volume-mute"></i>`;
     } else if (volume <= 33) {
-      labelForIcon.innerHTML = `<i class="bi bi-volume-off"></i>`;
+      labelForIcon.innerHTML = `<i id="mute1" class="bi bi-volume-off"></i>`;
     } else if (volume <= 66) {
-      labelForIcon.innerHTML = `<i class="bi bi-volume-down"></i>`;
+      labelForIcon.innerHTML = `<i id="mute2" class="bi bi-volume-down"></i>`;
     } else if (volume > 66) {
-      labelForIcon.innerHTML = `<i class="bi bi-volume-up"></i>`;
+      labelForIcon.innerHTML = `<i id="mute3" class="bi bi-volume-up"></i>`;
     }
 
     localStorage.setItem("savedVolume", volume.toString());

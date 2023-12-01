@@ -1,4 +1,5 @@
 import apikey from "../apikey.js";
+import { getTitleLength, getShuffleposition } from "./InfoCardsPosition.js";
 
 const defaultId = "491462925";
 
@@ -20,6 +21,7 @@ async function getData(albumId, trackId) {
   const Tracklist = result.tracks.data;
 
   let songs = Tracklist;
+  console.log(songs);
   const originalSongArry = songs;
   localStorage.setItem("originalSongArry", JSON.stringify(originalSongArry));
   const Picture = document.getElementById("pic");
@@ -42,6 +44,61 @@ async function getData(albumId, trackId) {
         currentSongIndex = (currentSongIndex + 1) % songs.length;
         playCurrentSong(songs, currentSongIndex);
       });
+
+      const heart = document.getElementById("heart");
+      console.log(foundTrack);
+
+      // ...
+
+      const savedsongs = loadSavedSongs(); // Lade gespeicherte Songs beim Start
+
+      heart.addEventListener("change", (e) => {
+        e.preventDefault();
+
+        if (heart.checked) {
+          console.log("Song wurde als Favorit markiert");
+
+          // Überprüfe, ob der Song bereits in den gespeicherten Songs ist
+          if (!isSongInSavedSongs(foundTrack)) {
+            savedsongs.push(foundTrack);
+            updateSavedSongs(savedsongs);
+            console.log(savedsongs);
+          } else {
+            console.log("Song ist bereits als Favorit markiert");
+          }
+        } else {
+          console.log("Song wurde als Favorit entfernt");
+
+          // Entferne den Song aus den gespeicherten Songs, falls vorhanden
+          removeSongFromSavedSongs(foundTrack);
+          updateSavedSongs(savedsongs);
+          console.log(savedsongs);
+        }
+      });
+
+      function removeSongFromSavedSongs(song) {
+        const indexToRemove = savedsongs.findIndex(
+          (savedSong) => savedSong.id === song.id
+        );
+        if (indexToRemove !== -1) {
+          savedsongs.splice(indexToRemove, 1);
+        }
+      }
+
+      // Funktionen für die Arbeit mit gespeicherten Songs
+      function loadSavedSongs() {
+        const storedPlaylist = localStorage.getItem("savedsongs");
+        return storedPlaylist ? JSON.parse(storedPlaylist) : [];
+      }
+
+      function isSongInSavedSongs(song) {
+        return savedsongs.some((savedSong) => savedSong.id === song.id);
+      }
+
+      function updateSavedSongs(songs) {
+        localStorage.setItem("savedsongs", JSON.stringify(songs));
+      }
+
       const shuffleInput = document.getElementById("shuffle");
 
       shuffleInput.addEventListener("change", (e) => {
@@ -57,9 +114,66 @@ async function getData(albumId, trackId) {
           songs = OriginArry;
         }
       });
+      const repeatInput = document.getElementById("repeat");
+
+      repeatInput.addEventListener("change", (e) => {
+        e.preventDefault();
+        if (repeatInput.checked) {
+          const currentSong = songs[currentSongIndex];
+
+          // Remove the currently playing song from the songs array
+          const indexToRemove = songs.indexOf(currentSong);
+          if (indexToRemove !== -1) {
+            songs.splice(indexToRemove, 1);
+          }
+
+          // Create a new array for repeated songs if it doesn't exist
+          const repeatedSongs = localStorage.getItem("repeatedSongs")
+            ? JSON.parse(localStorage.getItem("repeatedSongs"))
+            : [];
+
+          // Add the currently playing song to the repeated songs array
+          repeatedSongs.push(currentSong);
+
+          // Update the localStorage with the repeated songs array
+          localStorage.setItem("repeatedSongs", JSON.stringify(repeatedSongs));
+
+          // Set the songs variable to be equal to the repeatedSongs array
+          songs = repeatedSongs;
+
+          // Log the updated songs array
+          console.log("Songs after repeating:", songs);
+
+          // Continue with the rest of your code...
+        } else if (!repeatInput.checked) {
+          const OriginArry = JSON.parse(
+            localStorage.getItem("originalSongArry")
+          );
+          const clearedRepeatedSongs = [];
+          localStorage.setItem(
+            "repeatedSongs",
+            JSON.stringify(clearedRepeatedSongs)
+          );
+
+          songs = OriginArry;
+        }
+      });
+
+      console.log(savedsongs);
+      console.log("foundTrack.id:", foundTrack.id);
+      const hearticons = document.getElementById("hearticon");
+
+      if (savedsongs.some((song) => song.id === foundTrack.id)) {
+        console.log("huhu");
+        hearticons.innerHTML = `<i id="heart1" class="bi bi-heart-fill"></i>`;
+        hearticons.style.color = "white";
+      } else {
+        heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
+        heartForIcon.style.color = "gray";
+      }
 
       playCurrentSong(songs, currentSongIndex);
-      return currentSongIndex;
+      return currentSongIndex, savedsongs;
     } else {
       console.log("nope");
     }
@@ -96,6 +210,34 @@ function playshuffle() {
   }
 }
 
+const repeatIcon = document.getElementById("repeat");
+const labelForIcon3 = document.getElementById("repeatIcon");
+labelForIcon3.innerHTML = `<i id="repeat1" class="bi bi-repeat"></i>`;
+
+function playRepeat() {
+  if (repeatIcon.checked) {
+    labelForIcon3.innerHTML = `<i id="repeat1" class="bi bi-repeat"></i>`;
+    labelForIcon3.style.color = "white";
+  } else {
+    labelForIcon3.innerHTML = `<i id="repeat1" class="bi bi-repeat"></i>`;
+    labelForIcon3.style.color = "gray";
+  }
+}
+
+const heartInput = document.getElementById("heart");
+const heartForIcon = document.getElementById("hearticon");
+heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
+
+function saveSong() {
+  if (heartInput.checked) {
+    heartForIcon.innerHTML = `<i id="heart1" class="bi bi-heart-fill"></i>`;
+    heartForIcon.style.color = "white";
+  } else {
+    heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
+    heartForIcon.style.color = "gray";
+  }
+}
+
 async function updateTitle(cs) {
   const song = cs;
   function getTitle() {
@@ -103,6 +245,8 @@ async function updateTitle(cs) {
     const infotitle = document.getElementById("infoTitle");
     Title.innerText = song.title;
     infotitle.title = Title.innerText;
+    getTitleLength();
+    getShuffleposition();
   }
 
   getTitle();
@@ -192,4 +336,6 @@ export {
   updateTitle,
   updateArtistName,
   playshuffle,
+  playRepeat,
+  saveSong,
 };
