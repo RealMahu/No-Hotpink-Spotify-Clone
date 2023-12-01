@@ -1,5 +1,4 @@
-import { loadSongs } from "./scripts/loadSongs.js";
-import { loadGenre, genreUrlList } from "./scripts/loadGenre.js";
+import { loadMain } from "./scripts/loadMain.js";
 import {
   getData,
   playCurrentSong,
@@ -25,7 +24,8 @@ import {
   muteMouseOut,
 } from "./scripts/hoverOnIcons.js";
 
-loadGenre(genreUrlList);
+loadMain();
+
 
 document.getElementById("play").addEventListener("click", playAudio);
 

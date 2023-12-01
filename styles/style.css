@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
+:root {
+  --accent-color: #2ecc71;
+}
+
 *,
 *::before,
 *::after {
@@ -21,11 +25,12 @@ body {
   display: grid;
   padding: 5px 5px 0px 5px;
   gap: 5px;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr) 98px;
+  grid-template-columns: 300px repeat(3, 1fr) 300px;
+  grid-template-rows: repeat(4, 1fr) 100px;
 }
-body .style-main {
-  background-color: #111;
+body .main-area {
+  background: rgb(68, 68, 68);
+  background: linear-gradient(180deg, rgb(68, 68, 68) 0%, rgb(10, 10, 10) 100%);
   border-radius: 5px;
   padding: 5px;
   grid-area: 1/2/5/5;
@@ -34,94 +39,102 @@ body .style-main {
   flex-direction: column;
   gap: 10px;
 }
-body .style-main::-webkit-scrollbar-track {
+body .main-area::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   background-color: #444;
 }
-body .style-main::-webkit-scrollbar {
+body .main-area::-webkit-scrollbar {
   width: 5px;
   background-color: #444;
 }
-body .style-main::-webkit-scrollbar-thumb {
+body .main-area::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: rgb(255, 19, 137);
+  background-color: var(--accent-color);
 }
-body .style-main .music-card-area {
+body .main-area .music-card-area {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
   gap: 10px;
 }
-body .style-main .music-card-area .music-card {
+body .main-area .music-card-area .music-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 150px;
-  height: 200px;
+  height: 220px;
   background-color: #222;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
   box-shadow: 3px 3px 5px rgb(0, 0, 0), inset 1px 1px 1px rgba(255, 255, 255, 0.3);
 }
-body .style-main .music-card-area .music-card img {
-  border-radius: 6px 6px 0px 0px;
+body .main-area .music-card-area .music-card img {
+  border-radius: 6px;
 }
-body .style-main .music-card-area .music-card .card-btm {
+body .main-area .music-card-area .music-card .card-btm {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   font-family: "Figtree", sans-serif;
 }
-body .style-main .music-card-area .music-card .card-btm p {
+body .main-area .music-card-area .music-card .card-btm p {
   width: 100%;
   font-size: 13px;
   text-align: start;
 }
-body .style-main .music-card-area .music-card .card-btm small {
+body .main-area .music-card-area .music-card .card-btm small {
   opacity: 0.3;
   font-size: 11px;
 }
-body .style-main .music-card-area .music-card:hover {
+body .main-area .music-card-area .music-card:hover {
   background-color: #333;
   scale: 1.05;
   transition: background-color 300ms ease-in-out;
   transition: scale 300ms ease-in-out;
 }
-body .style-main .genre-card-area {
+body .main-area .genre-card-area {
   display: flex;
   gap: 25px;
   justify-content: center;
   flex-wrap: wrap;
 }
-body .style-main .genre-card-area .genre-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+body .main-area .genre-card-area .genre-card {
   cursor: pointer;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
 }
-body .style-main .genre-card-area .genre-card img {
-  border-radius: 10%;
-  border: 3px solid rgb(255, 19, 137);
-  box-shadow: 3px 3px 5px rgb(0, 0, 0);
+body .main-area .genre-card-area .genre-card img {
+  position: absolute;
+  width: 60%;
+  rotate: 30deg;
+  bottom: -5px;
+  right: -10px;
 }
-body .style-main .genre-card-area .genre-card img:hover {
-  scale: 1.1;
-  box-shadow: 5px 5px 5px rgb(0, 0, 0);
-  transition: all 300ms ease-in-out;
-}
-body .style-main .genre-card-area .genre-card p {
+body .main-area .genre-card-area .genre-card p {
+  position: absolute;
+  top: 5px;
+  left: 7px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
   font-family: "Figtree", sans-serif;
 }
-body .style-main .artist-card-area {
+body .main-area .genre-card-area .genre-card:hover {
+  scale: 1.05;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4);
+  transition: all 300ms ease;
+}
+body .main-area .artist-card-area {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -129,10 +142,11 @@ body .style-main .artist-card-area {
   justify-content: center;
   gap: 15px;
 }
-body .style-main .artist-card-area .artist-card {
+body .main-area .artist-card-area .artist-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 5px;
   background-color: #222;
   box-shadow: 3px 3px 5px rgb(0, 0, 0), inset 1px 1px 1px rgba(255, 255, 255, 0.3);
   border-radius: 5px;
@@ -142,20 +156,17 @@ body .style-main .artist-card-area .artist-card {
   width: 150px;
   padding: 10px;
 }
-body .style-main .artist-card-area .artist-card:hover {
-  scale: 1.1;
-  transition: all 300ms ease-in-out;
+body .main-area .artist-card-area .artist-card:hover {
+  background-color: #333;
+  scale: 1.05;
+  transition: background-color 300ms ease-in-out;
+  transition: scale 300ms ease-in-out;
 }
-body .style-main .artist-card-area .artist-card hr {
-  border-bottom: 1px solid rgb(255, 19, 137);
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+body .main-area .artist-card-area .artist-card img {
   width: 100%;
+  border-radius: 6px;
 }
-body .style-main .artist-card-area .artist-card img {
-  width: 100%;
-  height: 100%;
-}
-body .style-main .artist-card-area .artist-card .artist-name {
+body .main-area .artist-card-area .artist-card .artist-name {
   height: 27%;
   width: 100%;
   display: flex;
@@ -163,51 +174,89 @@ body .style-main .artist-card-area .artist-card .artist-name {
   justify-content: center;
   word-break: keep-all;
 }
-body .style-main .artist-card-area .artist-card .artist-name p {
+body .main-area .artist-card-area .artist-card .artist-name p {
   color: #fff;
   font-size: 15px;
   text-align: center;
   font-family: "Figtree", sans-serif;
 }
-body .style-main .spacer-heading {
+body .main-area .spacer-heading {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
   margin-bottom: 10px;
 }
-body .style-main .spacer-heading .headWithBack {
+body .main-area .spacer-heading .headWithBack {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 5px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-body .style-main .spacer-heading .headWithBack h2 {
+body .main-area .spacer-heading .headWithBack h2 {
   font-family: "Figtree", sans-serif;
   font-size: 25px;
   color: #fff;
 }
-body .style-main .spacer-heading .headWithBack p {
+body .main-area .spacer-heading .headWithBack p {
   padding: 5px 10px;
-  background-color: rgb(255, 19, 137);
+  background-color: var(--accent-color);
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
   color: #fff;
   cursor: pointer;
 }
-body .style-main .spacer-heading hr {
-  border-bottom: 1px solid rgb(255, 19, 137);
+body .main-area .spacer-heading hr {
+  border-bottom: 1px solid var(--accent-color);
   box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
   border-radius: 50px;
 }
+body .main-area .search-area {
+  display: none;
+}
+body .main-area .search-area .form-area {
+  width: 100%;
+}
+body .main-area .search-area .form-area form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+body .main-area .search-area .form-area form #searchbar {
+  min-width: 40%;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: "Figtree", sans-serif;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid var(--accent-color);
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+body .main-area .search-area .form-area form #searchSubBtn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-weight: bold;
+  font-family: "Figtree", sans-serif;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+body .main-area .search-area .form-area form #searchSubBtn:hover {
+  background-color: #fff;
+  color: var(--accent-color);
+  transition: all 300ms ease-in-out;
+}
 body .aside-left {
-  background-color: #444;
+  background-color: #111;
   border-radius: 5px;
   grid-area: 1/1/5/2;
 }
 body .aside-right {
-  background-color: #555;
+  background-color: #111;
   border-radius: 5px;
   grid-area: 1/5/5/6;
 }
@@ -217,7 +266,7 @@ body footer {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgb(255, 19, 137);
+  background-color: var(--accent-color);
 }
 body footer .infoCard_heart {
   display: none;
@@ -434,8 +483,8 @@ body footer .mid_Container .progress_Container .time-tracker .timer #Slider_prog
   background: #555;
   border-radius: 15px;
 }
-body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-range-min {
-  background-color: #2ecc71;
+body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-range-min {
+  background-color: var(--accent-color);
 }
 body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-handle {
   visibility: visible;
@@ -540,8 +589,8 @@ body footer .right_Container #player #volume {
   background: #555;
   border-radius: 15px;
 }
-body footer .right_Container #player #volume:hover .ui-slider-range-min {
-  background-color: #2ecc71;
+body footer .Player_Container .right_Container #player #volume:hover .ui-slider-range-min {
+  background-color: var(--accent-color);
 }
 body footer .right_Container #player #volume:hover .ui-slider-handle {
   visibility: visible;
