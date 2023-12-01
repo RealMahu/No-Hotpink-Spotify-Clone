@@ -44,6 +44,61 @@ async function getData(albumId, trackId) {
         currentSongIndex = (currentSongIndex + 1) % songs.length;
         playCurrentSong(songs, currentSongIndex);
       });
+
+      const heart = document.getElementById("heart");
+      console.log(foundTrack);
+
+      // ...
+
+      const savedsongs = loadSavedSongs(); // Lade gespeicherte Songs beim Start
+
+      heart.addEventListener("change", (e) => {
+        e.preventDefault();
+
+        if (heart.checked) {
+          console.log("Song wurde als Favorit markiert");
+
+          // Überprüfe, ob der Song bereits in den gespeicherten Songs ist
+          if (!isSongInSavedSongs(foundTrack)) {
+            savedsongs.push(foundTrack);
+            updateSavedSongs(savedsongs);
+            console.log(savedsongs);
+          } else {
+            console.log("Song ist bereits als Favorit markiert");
+          }
+        } else {
+          console.log("Song wurde als Favorit entfernt");
+
+          // Entferne den Song aus den gespeicherten Songs, falls vorhanden
+          removeSongFromSavedSongs(foundTrack);
+          updateSavedSongs(savedsongs);
+          console.log(savedsongs);
+        }
+      });
+
+      function removeSongFromSavedSongs(song) {
+        const indexToRemove = savedsongs.findIndex(
+          (savedSong) => savedSong.id === song.id
+        );
+        if (indexToRemove !== -1) {
+          savedsongs.splice(indexToRemove, 1);
+        }
+      }
+
+      // Funktionen für die Arbeit mit gespeicherten Songs
+      function loadSavedSongs() {
+        const storedPlaylist = localStorage.getItem("savedsongs");
+        return storedPlaylist ? JSON.parse(storedPlaylist) : [];
+      }
+
+      function isSongInSavedSongs(song) {
+        return savedsongs.some((savedSong) => savedSong.id === song.id);
+      }
+
+      function updateSavedSongs(songs) {
+        localStorage.setItem("savedsongs", JSON.stringify(songs));
+      }
+
       const shuffleInput = document.getElementById("shuffle");
 
       shuffleInput.addEventListener("change", (e) => {
@@ -104,8 +159,21 @@ async function getData(albumId, trackId) {
         }
       });
 
+      console.log(savedsongs);
+      console.log("foundTrack.id:", foundTrack.id);
+      const hearticons = document.getElementById("hearticon");
+
+      if (savedsongs.some((song) => song.id === foundTrack.id)) {
+        console.log("huhu");
+        hearticons.innerHTML = `<i id="heart1" class="bi bi-heart-fill"></i>`;
+        hearticons.style.color = "white";
+      } else {
+        heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
+        heartForIcon.style.color = "gray";
+      }
+
       playCurrentSong(songs, currentSongIndex);
-      return currentSongIndex;
+      return currentSongIndex, savedsongs;
     } else {
       console.log("nope");
     }
@@ -153,6 +221,20 @@ function playRepeat() {
   } else {
     labelForIcon3.innerHTML = `<i id="repeat1" class="bi bi-repeat"></i>`;
     labelForIcon3.style.color = "gray";
+  }
+}
+
+const heartInput = document.getElementById("heart");
+const heartForIcon = document.getElementById("hearticon");
+heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
+
+function saveSong() {
+  if (heartInput.checked) {
+    heartForIcon.innerHTML = `<i id="heart1" class="bi bi-heart-fill"></i>`;
+    heartForIcon.style.color = "white";
+  } else {
+    heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
+    heartForIcon.style.color = "gray";
   }
 }
 
@@ -255,4 +337,5 @@ export {
   updateArtistName,
   playshuffle,
   playRepeat,
+  saveSong,
 };

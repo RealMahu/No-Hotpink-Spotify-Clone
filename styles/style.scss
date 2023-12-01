@@ -323,285 +323,287 @@ body {
             }
           }
         }
-        .heart_Container {
-          display: flex;
-          flex-direction: column;
-          color: grey;
-          justify-content: center;
-          align-items: center;
-          margin-left: 5px;
-          font-size: 18px;
+
+        input[type="checkbox"].heart_Container1 {
+          display: none;
+        }
+        #hearticon {
+          background: none;
+          color: gray;
+          margin-top: 30px;
+          font-size: 20px;
           margin-right: 20px;
+          margin-left: 10px;
           .bi-heart {
             &:hover {
-              color: white;
+              color: #fff;
               cursor: pointer;
             }
           }
         }
       }
-      .mid_Container {
+    }
+    .mid_Container {
+      display: flex;
+      flex-direction: column;
+      min-width: 330px;
+      .buttons_Player {
         display: flex;
-        flex-direction: column;
-        min-width: 330px;
-        .buttons_Player {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          min-width: 300px;
-          margin-left: 65px;
-          height: 60px;
-          input[type="checkbox"].btn_Player_s {
-            display: none;
-          }
-          #shuffleicon {
-            background: none;
-            color: gray;
-            margin-top: 30px;
-            font-size: 20px;
-            margin-right: 20px;
-            .bi-shuffle {
-              &:hover {
-                color: #fff;
-                cursor: pointer;
-              }
+        flex-direction: row;
+        justify-content: flex-start;
+        min-width: 300px;
+        margin-left: 65px;
+        height: 60px;
+        input[type="checkbox"].btn_Player_s {
+          display: none;
+        }
+        #shuffleicon {
+          background: none;
+          color: gray;
+          margin-top: 30px;
+          font-size: 20px;
+          margin-right: 20px;
+          .bi-shuffle {
+            &:hover {
+              color: #fff;
+              cursor: pointer;
             }
           }
-          .btn_Player_l {
-            background: none;
-            color: gray;
-            margin-top: 25px;
-            font-size: 25px;
-            margin-right: 20px;
-            &:hover #prevs {
+        }
+        .btn_Player_l {
+          background: none;
+          color: gray;
+          margin-top: 25px;
+          font-size: 25px;
+          margin-right: 20px;
+          &:hover #prevs {
+            color: #fff;
+          }
+        }
+        input[type="checkbox"].btn_Player_pl {
+          display: none;
+        }
+        #playicon {
+          background: none;
+          color: white;
+          margin-top: 20px;
+          font-size: 40px;
+          margin-right: 20px;
+        }
+
+        .btn_Player_r {
+          background: none;
+          color: gray;
+          margin-top: 25px;
+          font-size: 25px;
+          margin-right: 20px;
+          &:hover #nexts {
+            color: white;
+          }
+        }
+        input[type="checkbox"].btn_Player_repeat {
+          display: none;
+        }
+        #repeatIcon {
+          background: none;
+          color: gray;
+          margin-top: 30px;
+          font-size: 20px;
+          margin-right: 20px;
+          .bi-repeat {
+            &:hover {
               color: #fff;
             }
           }
-          input[type="checkbox"].btn_Player_pl {
-            display: none;
-          }
-          #playicon {
-            background: none;
-            color: white;
-            margin-top: 20px;
-            font-size: 40px;
-            margin-right: 20px;
-          }
-
-          .btn_Player_r {
-            background: none;
-            color: gray;
-            margin-top: 25px;
-            font-size: 25px;
-            margin-right: 20px;
-            &:hover #nexts {
-              color: white;
-            }
-          }
-          input[type="checkbox"].btn_Player_repeat {
-            display: none;
-          }
-          #repeatIcon {
-            background: none;
-            color: gray;
-            margin-top: 30px;
-            font-size: 20px;
-            margin-right: 20px;
-            .bi-repeat {
-              &:hover {
-                color: #fff;
-              }
-            }
-          }
-        }
-        .progress_Container {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          min-width: 350px;
-          margin-bottom: 20px;
-          .time {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            color: lightgray;
-            font-family: "figtree", sans-serif;
-            margin-right: 10px;
-            font-size: 12px;
-          }
-          .time-tracker {
-            .timer {
-              position: relative;
-              float: left;
-              width: 90%;
-              height: 2rem;
-              width: 260px;
-              cursor: pointer;
-              #Slider_progress {
-                top: 13px;
-                position: absolute;
-                margin: 0 auto;
-                height: 5px;
-                min-width: 250px;
-                background: #555;
-                border-radius: 15px;
-
-                &:hover .ui-slider-range-min {
-                  background-color: $primary-color; // Use the color variable you have
-                }
-                &:hover .ui-slider-handle {
-                  visibility: visible;
-                }
-
-                .ui-slider-range-min {
-                  height: 5px;
-                  width: 0;
-                  position: absolute;
-                  background: white;
-                  border: none;
-                  border-radius: 10px;
-                  outline: none;
-                }
-
-                .ui-slider-handle {
-                  top: 2.5px; // Adjust the positioning based on your design
-                  width: 14px;
-                  height: 14px;
-                  border-radius: 14px;
-                  background: #fff;
-                  position: absolute;
-                  margin-left: -7px; // Half of the width
-                  margin-top: -7px; // Half of the height
-                  outline: none;
-                  z-index: 100;
-                  visibility: hidden;
-                }
-              }
-            }
-          }
-          .TimeFull {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            color: lightgray;
-            font-family: "figtree", sans-serif;
-            margin-right: 10px;
-            font-size: 12px;
-          }
         }
       }
-      .right_Container {
+      .progress_Container {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 30px;
-        .btn_right_v {
-          background: none;
-          color: gray;
-          margin-top: 30px;
-          font-size: 18px;
-          margin-right: 15px;
+        justify-content: flex-start;
+        min-width: 350px;
+        margin-bottom: 20px;
+        .time {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          color: lightgray;
+          font-family: "figtree", sans-serif;
+          margin-right: 10px;
+          font-size: 12px;
         }
-        .btn_right_l {
-          background: none;
-          color: gray;
-          margin-top: 30px;
-          font-size: 22px;
-          margin-right: 15px;
-        }
-        .btn_right_q {
-          background: none;
-          color: gray;
-          margin-top: 30px;
-          font-size: 26px;
-          margin-right: 15px;
-        }
-        .btn_right_d {
-          background: none;
-          color: gray;
-          margin-top: 30px;
-          font-size: 24px;
-          margin-right: 15px;
-        }
-        input[type="checkbox"].btn_right_mute {
-          display: none;
-        }
-        #muteicon {
-          background: none;
-          color: gray;
-          margin-top: 30px;
-          font-size: 26px;
-          .bi-volume-mute {
-            &:hover {
-              color: white;
-              cursor: pointer;
-            }
-          }
-          .bi-volume-off {
-            &:hover {
-              color: white;
-              cursor: pointer;
-            }
-          }
-        }
-
-        #player {
-          min-width: 70px;
-          height: 5px;
-          position: relative;
-          margin: 0 auto;
-          #volume {
-            top: 15px;
-            position: absolute;
-            left: 5px;
-            margin: 0 auto;
-            height: 5px;
-            min-width: 60px;
-            background: #555;
-            border-radius: 15px;
-            &:hover .ui-slider-range-min {
-              background-color: $primary-color;
-            }
-            &:hover .ui-slider-handle {
-              visibility: visible;
-            }
-            .ui-slider-range-min {
+        .time-tracker {
+          .timer {
+            position: relative;
+            float: left;
+            width: 90%;
+            height: 2rem;
+            width: 260px;
+            cursor: pointer;
+            #Slider_progress {
+              top: 13px;
+              position: absolute;
+              margin: 0 auto;
               height: 5px;
-              width: 0px;
-              position: absolute;
-              background: white;
-              border: none;
-              border-radius: 10px;
-              outline: none;
-            }
-            .ui-slider-handle {
-              top: 3px;
-              width: 14px;
-              height: 14px;
-              border-radius: 14px;
-              background: #fff;
-              position: absolute;
-              margin-left: -8px;
-              margin-top: -8px;
+              min-width: 250px;
+              background: #555;
+              border-radius: 15px;
 
-              outline: none;
-              z-index: 100;
-              visibility: hidden;
+              &:hover .ui-slider-range-min {
+                background-color: $primary-color; // Use the color variable you have
+              }
+              &:hover .ui-slider-handle {
+                visibility: visible;
+              }
+
+              .ui-slider-range-min {
+                height: 5px;
+                width: 0;
+                position: absolute;
+                background: white;
+                border: none;
+                border-radius: 10px;
+                outline: none;
+              }
+
+              .ui-slider-handle {
+                top: 2.5px; // Adjust the positioning based on your design
+                width: 14px;
+                height: 14px;
+                border-radius: 14px;
+                background: #fff;
+                position: absolute;
+                margin-left: -7px; // Half of the width
+                margin-top: -7px; // Half of the height
+                outline: none;
+                z-index: 100;
+                visibility: hidden;
+              }
             }
           }
+        }
+        .TimeFull {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          color: lightgray;
+          font-family: "figtree", sans-serif;
+          margin-right: 10px;
+          font-size: 12px;
         }
       }
-      .btn_right_f {
+    }
+    .right_Container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 30px;
+      .btn_right_v {
         background: none;
         color: gray;
         margin-top: 30px;
         font-size: 18px;
-        margin-right: 10px;
-        margin-left: 10px;
+        margin-right: 15px;
       }
+      .btn_right_l {
+        background: none;
+        color: gray;
+        margin-top: 30px;
+        font-size: 22px;
+        margin-right: 15px;
+      }
+      .btn_right_q {
+        background: none;
+        color: gray;
+        margin-top: 30px;
+        font-size: 26px;
+        margin-right: 15px;
+      }
+      .btn_right_d {
+        background: none;
+        color: gray;
+        margin-top: 30px;
+        font-size: 24px;
+        margin-right: 15px;
+      }
+      input[type="checkbox"].btn_right_mute {
+        display: none;
+      }
+      #muteicon {
+        background: none;
+        color: gray;
+        margin-top: 30px;
+        font-size: 26px;
+        .bi-volume-mute {
+          &:hover {
+            color: white;
+            cursor: pointer;
+          }
+        }
+        .bi-volume-off {
+          &:hover {
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+
+      #player {
+        min-width: 70px;
+        height: 5px;
+        position: relative;
+        margin: 0 auto;
+        #volume {
+          top: 15px;
+          position: absolute;
+          left: 5px;
+          margin: 0 auto;
+          height: 5px;
+          min-width: 60px;
+          background: #555;
+          border-radius: 15px;
+          &:hover .ui-slider-range-min {
+            background-color: $primary-color;
+          }
+          &:hover .ui-slider-handle {
+            visibility: visible;
+          }
+          .ui-slider-range-min {
+            height: 5px;
+            width: 0px;
+            position: absolute;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+          }
+          .ui-slider-handle {
+            top: 3px;
+            width: 14px;
+            height: 14px;
+            border-radius: 14px;
+            background: #fff;
+            position: absolute;
+            margin-left: -8px;
+            margin-top: -8px;
+
+            outline: none;
+            z-index: 100;
+            visibility: hidden;
+          }
+        }
+      }
+    }
+    .btn_right_f {
+      background: none;
+      color: gray;
+      margin-top: 30px;
+      font-size: 18px;
+      margin-right: 10px;
+      margin-left: 10px;
     }
   }
 }
