@@ -497,7 +497,7 @@ body {
               border-radius: 15px;
 
               &:hover .ui-slider-range-min {
-                background-color: $primary-color; // Use the color variable you have
+                background-color: var(--accent-color); // Use the color variable you have
               }
               &:hover .ui-slider-handle {
                 visibility: visible;
@@ -612,7 +612,7 @@ body {
           background: #555;
           border-radius: 15px;
           &:hover .ui-slider-range-min {
-            background-color: $primary-color;
+            background-color: var(--accent-color);
           }
           &:hover .ui-slider-handle {
             visibility: visible;

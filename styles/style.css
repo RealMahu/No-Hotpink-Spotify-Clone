@@ -483,7 +483,7 @@ body footer .mid_Container .progress_Container .time-tracker .timer #Slider_prog
   background: #555;
   border-radius: 15px;
 }
-body footer .Player_Container .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-range-min {
+body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-range-min {
   background-color: var(--accent-color);
 }
 body footer .mid_Container .progress_Container .time-tracker .timer #Slider_progress:hover .ui-slider-handle {
@@ -589,7 +589,7 @@ body footer .right_Container #player #volume {
   background: #555;
   border-radius: 15px;
 }
-body footer .Player_Container .right_Container #player #volume:hover .ui-slider-range-min {
+body footer .right_Container #player #volume:hover .ui-slider-range-min {
   background-color: var(--accent-color);
 }
 body footer .right_Container #player #volume:hover .ui-slider-handle {
