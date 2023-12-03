@@ -173,32 +173,27 @@ function createProfiles(){
 	const danny = document.querySelector(".danny");
 	const david = document.querySelector(".david");
 	const ari = document.querySelector(".ari");
+	const linkUrl = "https://github.com/"
 
 	ari.addEventListener("click", (e) => {
 		e.preventDefault();
-		const linkUrl = "https://github.com/AriiMe";
-		window.open(linkUrl, '_blank');
+		window.open(`${linkUrl}AriiMe`, '_blank');
 	});
 
 	michelle.addEventListener("click", (e) => {
 		e.preventDefault();
-		const linkUrl = "https://github.com/MichelleStraesser";
-		window.open(linkUrl, '_blank');
+		window.open(`${linkUrl}MichelleStraesser`, '_blank');
 	});
 
 	danny.addEventListener("click", (e) => {
 		e.preventDefault();
-		const linkUrl = "https://github.com/RealMahu";
-		window.open(linkUrl, '_blank');
+		window.open(`${linkUrl}RealMahu`, '_blank');
 	});
 
 	david.addEventListener("click", (e) => {
 		e.preventDefault();
-		const linkUrl = "https://github.com/David-Brandenburg";
-		window.open(linkUrl, '_blank');
+		window.open(`${linkUrl}David-Brandenburg`, '_blank');
 	});
 }
-
-
 
 export { toggleAccentColor, loadTab };
