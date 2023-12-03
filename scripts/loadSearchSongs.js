@@ -1,5 +1,5 @@
 import { getData, playCurrentSong, playAudio } from "./fetch.js";
-import apikey from "../apikey.js";
+import apikey from "../data/apikey.js";
 
 const genreArea = document.querySelector(".genre-area");
 
@@ -12,14 +12,14 @@ const options = {
 };
 const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
 
-async function loadSearchSongs(selectedArtist) {
+async function loadSearchSongs(searchInput) {
 	genreArea.innerHTML = '';
 	const genreHeading = document.createElement("div");
 	const musicCardArea = document.createElement("div");
 	genreHeading.classList.add("spacer-heading");
 	genreHeading.innerHTML = `
 		<div class="headWithBack">
-			<h2>All results of '${selectedArtist}'</h2>
+			<h2>All results of '${searchInput}'</h2>
 		</div>
 		<hr>
 	`;
@@ -27,7 +27,7 @@ async function loadSearchSongs(selectedArtist) {
 	musicCardArea.classList.add("music-card-area");
 	genreArea.appendChild(musicCardArea);
 	try {
-		const response = await fetch(`${url}${selectedArtist}`, options);
+		const response = await fetch(`${url}${searchInput}`, options);
 		const data = await response.json();
 		if (data.data && Array.isArray(data.data)) {
 			data.data.forEach((songData) => {
