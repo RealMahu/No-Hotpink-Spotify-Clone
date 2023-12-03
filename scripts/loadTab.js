@@ -1,5 +1,6 @@
 import apikey from "../data/apikey.js";
 import { file } from "../data/data2Fetch.js";
+import { getData } from "./fetch.js";
 import { loadLogin, logging } from "./loadForm.js";
 import { getGreeting, loadMain } from "./loadMain.js";
 
@@ -37,11 +38,12 @@ async function loadTab() {
 				const data = await resp.json();
 				const matchingSong = data.data.find((item) => item.title === song.title);
 				if (matchingSong) {
-					// console.log(`Daten für ${song.artist} gefunden:`, matchingSong);
 					const cover = matchingSong.album.cover_small;
 					const albumTitle = matchingSong.album.title;
 					const title = matchingSong.title_short;
 					const artist = matchingSong.artist.name;
+					const albumId = matchingSong.album.id;
+					const trackId = matchingSong.id;
 					const chartBox = document.createElement("div")
 					chartBox.classList.add("chart-box");
 					chartBox.innerHTML = `
@@ -52,6 +54,10 @@ async function loadTab() {
 						</div>
 					`;
 					tabBox.appendChild(chartBox);
+					chartBox.addEventListener("click", (e) => {
+						e.preventDefault();
+						getData(albumId, trackId);
+					});
 				} else {
 					console.log(`Daten für ${song.artist} nicht gefunden.`);
 				}

@@ -716,8 +716,20 @@ body {
 						background-color: #222;
 						border-radius: 5px;
 						cursor: pointer;
-						
+						&.chart-box::after{
+							visibility: visible;
+						}
 					}
+				}
+				.chart-box::after{
+					content:'\F4F2';
+					font-family: 'Bootstrap-icons';
+					position: absolute;
+					top: 12px; right: 5px;
+					color: var(--accent-color);
+					font-size: 25px;
+					visibility: hidden;
+					filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.8));
 				}
 				.form-box{
 					height: 100%;

@@ -679,6 +679,20 @@ body .aside-right .lower-box2 .tab-box .chart-box:hover {
   border-radius: 5px;
   cursor: pointer;
 }
+body .aside-right .lower-box2 .tab-box .chart-box:hover.chart-box::after {
+  visibility: visible;
+}
+body .aside-right .lower-box2 .tab-box .chart-box::after {
+  content: "\f4f2";
+  font-family: "Bootstrap-icons";
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  color: var(--accent-color);
+  font-size: 25px;
+  visibility: hidden;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.8));
+}
 body .aside-right .lower-box2 .tab-box .form-box {
   height: 100%;
   width: 100%;
