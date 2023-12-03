@@ -375,6 +375,7 @@ body .aside-left .lower-box .library-songs .song-box::after {
   color: var(--accent-color);
   font-size: 25px;
   visibility: hidden;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.8));
 }
 body .aside-left .lower-box .library-songs .empty-box {
   width: 100%;
@@ -618,6 +619,7 @@ body .aside-right .lower-box2 .tab-box .user:nth-child(even)::after {
   left: 0;
   font-size: 30px;
   visibility: hidden;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.8));
 }
 body .aside-right .lower-box2 .tab-box .user:nth-child(odd)::after {
   content: "\f3ed";
@@ -626,6 +628,7 @@ body .aside-right .lower-box2 .tab-box .user:nth-child(odd)::after {
   right: 0;
   font-size: 30px;
   visibility: hidden;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.8));
 }
 body .aside-right .lower-box2 .tab-box .user:hover {
   background-color: #222;

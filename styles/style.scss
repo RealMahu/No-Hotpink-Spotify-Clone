@@ -370,6 +370,7 @@ body {
 					color: var(--accent-color);
 					font-size: 25px;
 					visibility: hidden;
+					filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.8));
 				}
 				.empty-box{
 					width: 100%;
@@ -651,6 +652,7 @@ body {
 							left: 0;
 							font-size: 30px;
 							visibility: hidden;
+							filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.8));
 						}
 					}
 					&:nth-child(odd){
@@ -661,6 +663,7 @@ body {
 							right: 0;
 							font-size: 30px;
 							visibility: hidden;
+							filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.8));
 						}
 					}
 					&:hover{
