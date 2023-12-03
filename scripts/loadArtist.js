@@ -1,7 +1,7 @@
 import { loadSongs } from "./loadSongs.js";
 import { state } from "../index.js";
 import { loadGenre } from "./loadGenre.js";
-import apikey from "../apikey.js";
+import apikey from "../data/apikey.js";
 import { file } from "../data/data2Fetch.js";
 
 const genreArea = document.querySelector(".genre-area");

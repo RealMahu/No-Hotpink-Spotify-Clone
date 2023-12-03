@@ -1,5 +1,6 @@
-import apikey from "../apikey.js";
+import apikey from "../data/apikey.js";
 import { getTitleLength, getShuffleposition } from "./InfoCardsPosition.js";
+import { loadLibrary } from "./loadLibrary.js";
 
 const defaultId = "491462925";
 
@@ -13,173 +14,140 @@ const options = {
 };
 
 async function getData(albumId, trackId) {
-  const idToUse = albumId || defaultId;
-
-  const response = await fetch(`${url}${idToUse}`, options);
-  const result = await response.json();
-
-  const Tracklist = result.tracks.data;
-
-  let songs = Tracklist;
-  console.log(songs);
-  const originalSongArry = songs;
-  localStorage.setItem("originalSongArry", JSON.stringify(originalSongArry));
-  const Picture = document.getElementById("pic");
-  Picture.src = result.cover_small;
-  const foundTrack = result.tracks.data.find((track) => track.id === trackId);
-
-  if (foundTrack) {
-    if (Tracklist.indexOf(foundTrack) !== -1) {
-      let currentSongIndex = Tracklist.indexOf(foundTrack);
-
-      const prevBtn = document.getElementById("prev");
-      prevBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-        playCurrentSong(songs, currentSongIndex);
-      });
-      const nextBtn = document.getElementById("next");
-      nextBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        playCurrentSong(songs, currentSongIndex);
-      });
-
-      const heart = document.getElementById("heart");
-      console.log(foundTrack);
-
-      // ...
-
-      const savedsongs = loadSavedSongs(); // Lade gespeicherte Songs beim Start
-
-      heart.addEventListener("change", (e) => {
-        e.preventDefault();
-
-        if (heart.checked) {
-          console.log("Song wurde als Favorit markiert");
-
-          // Überprüfe, ob der Song bereits in den gespeicherten Songs ist
-          if (!isSongInSavedSongs(foundTrack)) {
-            savedsongs.push(foundTrack);
-            updateSavedSongs(savedsongs);
-            console.log(savedsongs);
-          } else {
-            console.log("Song ist bereits als Favorit markiert");
-          }
-        } else {
-          console.log("Song wurde als Favorit entfernt");
-
-          // Entferne den Song aus den gespeicherten Songs, falls vorhanden
-          removeSongFromSavedSongs(foundTrack);
-          updateSavedSongs(savedsongs);
-          console.log(savedsongs);
-        }
-      });
-
-      function removeSongFromSavedSongs(song) {
-        const indexToRemove = savedsongs.findIndex(
-          (savedSong) => savedSong.id === song.id
-        );
-        if (indexToRemove !== -1) {
-          savedsongs.splice(indexToRemove, 1);
-        }
-      }
-
-      // Funktionen für die Arbeit mit gespeicherten Songs
-      function loadSavedSongs() {
-        const storedPlaylist = localStorage.getItem("savedsongs");
-        return storedPlaylist ? JSON.parse(storedPlaylist) : [];
-      }
-
-      function isSongInSavedSongs(song) {
-        return savedsongs.some((savedSong) => savedSong.id === song.id);
-      }
-
-      function updateSavedSongs(songs) {
-        localStorage.setItem("savedsongs", JSON.stringify(songs));
-      }
-
-      const shuffleInput = document.getElementById("shuffle");
-
-      shuffleInput.addEventListener("change", (e) => {
-        if (shuffleInput.checked) {
-          for (let i = songs.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [songs[i], songs[j]] = [songs[j], songs[i]];
-          }
-        } else if (!shuffleInput.checked) {
-          const OriginArry = JSON.parse(
-            localStorage.getItem("originalSongArry")
-          );
-          songs = OriginArry;
-        }
-      });
-      const repeatInput = document.getElementById("repeat");
-
-      repeatInput.addEventListener("change", (e) => {
-        e.preventDefault();
-        if (repeatInput.checked) {
-          const currentSong = songs[currentSongIndex];
-
-          // Remove the currently playing song from the songs array
-          const indexToRemove = songs.indexOf(currentSong);
-          if (indexToRemove !== -1) {
-            songs.splice(indexToRemove, 1);
-          }
-
-          // Create a new array for repeated songs if it doesn't exist
-          const repeatedSongs = localStorage.getItem("repeatedSongs")
-            ? JSON.parse(localStorage.getItem("repeatedSongs"))
-            : [];
-
-          // Add the currently playing song to the repeated songs array
-          repeatedSongs.push(currentSong);
-
-          // Update the localStorage with the repeated songs array
-          localStorage.setItem("repeatedSongs", JSON.stringify(repeatedSongs));
-
-          // Set the songs variable to be equal to the repeatedSongs array
-          songs = repeatedSongs;
-
-          // Log the updated songs array
-          console.log("Songs after repeating:", songs);
-
-          // Continue with the rest of your code...
-        } else if (!repeatInput.checked) {
-          const OriginArry = JSON.parse(
-            localStorage.getItem("originalSongArry")
-          );
-          const clearedRepeatedSongs = [];
-          localStorage.setItem(
-            "repeatedSongs",
-            JSON.stringify(clearedRepeatedSongs)
-          );
-
-          songs = OriginArry;
-        }
-      });
-
-      console.log(savedsongs);
-      console.log("foundTrack.id:", foundTrack.id);
-      const hearticons = document.getElementById("hearticon");
-
-      if (savedsongs.some((song) => song.id === foundTrack.id)) {
-        console.log("huhu");
-        hearticons.innerHTML = `<i id="heart1" class="bi bi-heart-fill"></i>`;
-        hearticons.style.color = "white";
-      } else {
-        heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
-        heartForIcon.style.color = "gray";
-      }
-
-      playCurrentSong(songs, currentSongIndex);
-      return currentSongIndex, savedsongs;
-    } else {
-      console.log("nope");
-    }
-  }
-
-  return { songs, originalSongArry, result, currentSongIndex };
+	const idToUse = albumId || defaultId;
+	const response = await fetch(`${url}${idToUse}`, options);
+	const result = await response.json();
+	const Tracklist = result.tracks.data;
+	let songs = Tracklist;
+	console.log("SONGS", songs);
+	const originalSongArry = songs;
+	localStorage.setItem("originalSongArry", JSON.stringify(originalSongArry));
+	const Picture = document.getElementById("pic");
+	Picture.src = result.cover_small;
+	const foundTrack = result.tracks.data.find((track) => track.id === trackId);
+	if (foundTrack) {
+		if (Tracklist.indexOf(foundTrack) !== -1) {
+		let currentSongIndex = Tracklist.indexOf(foundTrack);
+		const prevBtn = document.getElementById("prev");
+		prevBtn.addEventListener("click", (e) => {
+			e.preventDefault();
+			currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+			playCurrentSong(songs, currentSongIndex);
+		});
+		const nextBtn = document.getElementById("next");
+		nextBtn.addEventListener("click", (e) => {
+			e.preventDefault();
+			currentSongIndex = (currentSongIndex + 1) % songs.length;
+			playCurrentSong(songs, currentSongIndex);
+		});
+		const heart = document.getElementById("heart");
+		console.log(foundTrack);
+		// ...
+		const savedsongs = loadSavedSongs(); // Lade gespeicherte Songs beim Start
+		heart.addEventListener("change", () => {
+			// e.preventDefault();
+			if (heart.checked) {
+			console.log("Song wurde als Favorit markiert");
+			// Überprüfe, ob der Song bereits in den gespeicherten Songs ist
+			if (!isSongInSavedSongs(foundTrack)) {
+				savedsongs.push(foundTrack);
+				updateSavedSongs(savedsongs);
+				console.log(savedsongs);
+			} else {
+				console.log("Song ist bereits als Favorit markiert");
+			}
+			} else {
+				console.log("Song wurde als Favorit entfernt");
+				// Entferne den Song aus den gespeicherten Songs, falls vorhanden
+				removeSongFromSavedSongs(foundTrack);
+				updateSavedSongs(savedsongs);
+				console.log(savedsongs);
+			}
+			setTimeout(loadLibrary, 500)
+		});
+		function removeSongFromSavedSongs(song) {
+			const indexToRemove = savedsongs.findIndex(
+			(savedSong) => savedSong.id === song.id
+			);
+			if (indexToRemove !== -1) {
+			savedsongs.splice(indexToRemove, 1);
+			}
+		}
+		// Funktionen für die Arbeit mit gespeicherten Songs
+		function loadSavedSongs() {
+			const storedPlaylist = localStorage.getItem("savedsongs");
+			return storedPlaylist ? JSON.parse(storedPlaylist) : [];
+		}
+		function isSongInSavedSongs(song) {
+			return savedsongs.some((savedSong) => savedSong.id === song.id);
+		}
+		function updateSavedSongs(songs) {
+			localStorage.setItem("savedsongs", JSON.stringify(songs));
+		}
+		const shuffleInput = document.getElementById("shuffle");
+		shuffleInput.addEventListener("change", (e) => {
+			if (shuffleInput.checked) {
+			for (let i = songs.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[songs[i], songs[j]] = [songs[j], songs[i]];
+			}
+			} else if (!shuffleInput.checked) {
+			const OriginArry = JSON.parse(
+				localStorage.getItem("originalSongArry")
+			);
+			songs = OriginArry;
+			}
+		});
+		const repeatInput = document.getElementById("repeat");
+		repeatInput.addEventListener("change", (e) => {
+			e.preventDefault();
+			if (repeatInput.checked) {
+			const currentSong = songs[currentSongIndex];
+			// Remove the currently playing song from the songs array
+			const indexToRemove = songs.indexOf(currentSong);
+			if (indexToRemove !== -1) {
+				songs.splice(indexToRemove, 1);
+			}
+			// Create a new array for repeated songs if it doesn't exist
+			const repeatedSongs = localStorage.getItem("repeatedSongs")
+				? JSON.parse(localStorage.getItem("repeatedSongs"))
+				: [];
+			// Add the currently playing song to the repeated songs array
+			repeatedSongs.push(currentSong);
+			// Update the localStorage with the repeated songs array
+			localStorage.setItem("repeatedSongs", JSON.stringify(repeatedSongs));
+			// Set the songs variable to be equal to the repeatedSongs array
+			songs = repeatedSongs;
+			// Log the updated songs array
+			console.log("Songs after repeating:", songs);
+			// Continue with the rest of your code...
+			} else if (!repeatInput.checked) {
+			const OriginArry = JSON.parse(
+				localStorage.getItem("originalSongArry")
+			);
+			const clearedRepeatedSongs = [];
+			localStorage.setItem("repeatedSongs", JSON.stringify(clearedRepeatedSongs));
+			songs = OriginArry;
+			}
+		});
+		console.log(savedsongs);
+		console.log("foundTrack.id:", foundTrack.id);
+		const hearticons = document.getElementById("hearticon");
+		if (savedsongs.some((song) => song.id === foundTrack.id)) {
+			console.log("huhu");
+			hearticons.innerHTML = `<i id="heart1" class="bi bi-heart-fill"></i>`;
+			hearticons.style.color = "white";
+		} else {
+			heartForIcon.innerHTML = `<i id="heart0" class="bi bi-heart"></i>`;
+			heartForIcon.style.color = "gray";
+		}
+		playCurrentSong(songs, currentSongIndex);
+		return currentSongIndex, savedsongs;
+		} else {
+			console.log("nope");
+		}
+	}
+	return { songs, originalSongArry, result, currentSongIndex };
 }
 
 const audioPlayer = document.getElementById("PlayerAudioSrc");

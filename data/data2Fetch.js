@@ -2,7 +2,7 @@
 let genreArtists = [
 	{
 		genreName: "Rap/Hip Hop",
-		genreArtists: [ "$uicideboy$", "Brennan Savage", "Night Lovell", "Sido", "Eminem", "2Pac", "Apache 207", "Kontra K", "Rin", "Juice Wrld", "Kendrick Lamar", "21 Savage", "Jay-Z", "Marteria", "Samy Deluxe", "KC Rebell", "Bonez MC", "Casper", "Capital Bra", "Samra", "Lil Peep", "GZUZ", "50 Cent"
+		genreArtists: [ "$uicideboy$", "Brennan Savage", "Night Lovell", "Sido", "Eminem", "2Pac", "Apache 207", "Kontra K", "Rin", "Juice Wrld", "Kendrick Lamar", "21 Savage", "Jay-Z", "Marteria", "Samy Deluxe", "KC Rebell", "Bonez MC", "Casper", "Capital Bra", "Samra", "Lil Peep", "GZUZ", "50 Cent", "Shahmen", "Corpse"
 		],
 	},
 	{
@@ -54,12 +54,28 @@ let genreArtists = [
 	},
 	{
 		genreName: "Filme/Videospiele",
-		genreArtists: [ "Gustavo Santaolalla", "Hans Zimmer", "Shoi Miyazawa", "SQUARE ENIX MUSIC", "Greg Edmonson", "Brian Tyler", "Inon Zur", "Tyler Bates", "Marcin Przybyłowicz", "Jeremy Soule", "Gareth Coker", "chuck e. myers 'sea'", "Hiroyuki Sawano", "Danny Elfman", "Alexandre Desplat" ],
+		genreArtists: [ "Gustavo Santaolalla", "Hans Zimmer", "Shoi Miyazawa", "SQUARE ENIX MUSIC", "Greg Edmonson", "Brian Tyler", "Inon Zur", "Tyler Bates", "Marcin Przybyłowicz", "Jeremy Soule", "Gareth Coker", "chuck e. myers 'sea'", "Hiroyuki Sawano", "Danny Elfman", "Alexandre Desplat", "James Horner", "Simon Franglen" ],
 	},
 	{
 		genreName: "Soul & Funk",
 		genreArtists: [ "James Brown", "Etta James", "Jackson 5", "Ray Charles", "Kool & The Gang", "Stevie Wonder", "Diana Ross", "Aretha Franklin", "Marvin Gaye", "Otis Redding", "Billy Paul", "Amy Winehouse" ],
 	},
+	{
+		genreName: "Hörbücher",
+		genreArtists: [ "Mhairi McFarlane", "Ella Hansen", "Julia Quinn", "Arno Strobel", "Birgit Gruber", "Jörg Maurer", "Michael Hjorth", "Markus Heitz", "Daniela Arnold", "Maggie Stiefvater", "Iny Lorentz", "Phillip P. Peterson", "Ilona Andrews", "Marcus Hünnebeck", "Patricia Cornwell"],
+	},
+	{
+		genreName: "Alternative",
+		genreArtists: [ "AnnenMayKantereit", "Giant Rooks", "Mitski", "Kraftklub", "Georgia", "Lana Del Rey", "JEREMIAS", "Jungle", "Casper", "Arctic Monkeys", "Provinz", "beabadoobee", "Faye Webster", "Wanda", "Florence + The Machine", "Gorillaz"],
+	},
+	{
+		genreName: "Afrikanische Musik",
+		genreArtists: [ "Entspannung Tribe", "Afrikanische Musik Akademie", "The Happy Gangstas", "Trommel World Collective", "Indianer Akademie", "Ofra N'Dour", "Chor Jambo", "DaVido", "Rema", "CKay", "Ayra Starr", "Wizkid", "Omah lay", "Camidoh", "Burna Boy", "Tiwa Savage", "Adekunle Gold", "Pheelz", "Lojay" ],
+	},
+	{
+		genreName: "Blues",
+		genreArtists: [ "Gunwood", "Boney Fields", "Robert Finley", "Buffalo Nichols", "Dr. John", "Larkin Poe", "Grant Haua", "Popa Chubby", "the Empty Pockets", "Coco Montoya", "big daddy wilson", "Durand Jones", "Taj Mahal", "Joe Marcinek Band", "Gwyn Ashton", "Tony Holiday" ],
+	}
 ];
 
 const genreUrlList = [
@@ -115,9 +131,85 @@ const genreUrlList = [
 		genre: "Soul & Funk",
 		genreId: "169",
 	},
+	{
+		genre: "Hörbücher",
+		genreId: "457",
+	},
+	{
+		genre: "Alternative",
+		genreId: "85",
+	},
+	{
+		genre: "Afrikanische Musik",
+		genreId: "2",
+	},
+	{
+		genre: "Blues",
+		genreId: "153",
+	},
+];
+
+const chartList = [
+	{
+		title: 'greedy',
+		artist: 'Tate McRae',
+	},
+	{
+		title: 'All I Want for Christmas Is You',
+		artist: 'Mariah Carey',
+	},
+	{
+		title: 'My Love Mine All Mine',
+		artist: 'Mitski',
+	},
+	{
+		title: 'Last Christmas',
+		artist: 'Wham!',
+	},
+	{
+		title: 'Lovin On Me',
+		artist: 'Jack Harlow',
+	},
+	{
+		title: 'Cruel Summer',
+		artist: 'Taylor Swift',
+	},
+	{
+		title: "Rockin' Around The Christmas Tree",
+		artist: 'Brenda Lee',
+	},
+	{
+		title: 'Standing Next to You',
+		artist: 'Jung Kook',
+	},
+	{
+		title: 'Paint The Town Red',
+		artist: 'Doja Cat',
+	},
+	{
+		title: 'PERRO NEGRO',
+		artist: 'Bad Bunny',
+	},
+	{
+		title: 'Strangers',
+		artist: 'Kenya Grace',
+	},
+	{
+		title: 'Jingle Bell Rock',
+		artist: 'Bobby Helms',
+	},
+	{
+		title: 'I Wanna Be Yours',
+		artist: 'Arctic Monkeys',
+	},
+	{
+		title: 'Houdini',
+		artist: 'Dua Lipa',
+	}
 ];
 
 export const file = {
 	genreArtists,
 	genreUrlList,
+	chartList,
 };

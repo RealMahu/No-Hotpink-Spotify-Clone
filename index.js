@@ -1,4 +1,6 @@
 import { loadMain } from "./scripts/loadMain.js";
+import { toggleAccentColor } from "./scripts/loadTab.js";
+import { loadLogin, logging } from "./scripts/loadForm.js";
 import {
   getData,
   playCurrentSong,
@@ -81,4 +83,18 @@ let currentPage;
 
 export const state = {
   currentPage,
+};
+
+function checkLogIn() {
+	let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+	const loggedInUser = accounts.find(account => account.loggedIn === true);
+	if (loggedInUser) {
+		logging();
+	} else {
+		loadLogin();
+	}
+}
+
+window.onload = function () {
+	checkLogIn();
 };

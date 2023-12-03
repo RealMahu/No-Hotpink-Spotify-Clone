@@ -1,5 +1,5 @@
 import { loadArtists } from "./loadArtist.js";
-import apikey from "../apikey.js";
+import apikey from "../data/apikey.js";
 const genreArea = document.querySelector(".genre-area");
 const highArea = document.querySelector(".highlight");
 const prevArea = document.querySelector(".preview");
