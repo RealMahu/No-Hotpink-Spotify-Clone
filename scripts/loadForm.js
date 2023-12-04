@@ -88,11 +88,11 @@ function loadLogin(){
 		</div>
 		<div class="nickname-box form-row">
 			<label for="nickname">Nickname</label>
-			<input autocomplete="off" type="text" name="nickname" id="nickname" required>
+			<input autocomplete="off" type="text" name="nickname" id="nickname">
 		</div>
 		<div class="password-box form-row">
 			<label for="password">Password</label>
-			<input autocomplete="off" type="password" name="password" id="password" required>
+			<input autocomplete="off" type="password" name="password" id="password">
 		</div>
 		<div class="button-box form-row">
 			<label class="LogRegBtn" id="submitLog" for="submitLog">Login</label>
@@ -110,9 +110,7 @@ function loadLogin(){
 		tabBox.innerHTML = '';
 		loadRegister();
 	});
-	const loginBtn = document.getElementById("submitLog");
-	loginBtn.addEventListener("click", (e) => {
-		e.preventDefault();
+	function login(){
 		const nickname = document.getElementById("nickname");
 		const password = document.getElementById("password");
 		const alertMessage = document.querySelector(".alert-message");
@@ -140,6 +138,16 @@ function loadLogin(){
 				setTimeout(clearAlert, 3000);
 			};
 		};
+	}
+	const loginForm = document.querySelector(".login-form")
+	const loginBtn = document.getElementById("submitLog");
+	loginForm.addEventListener("submit", (e) => {
+		e.preventDefault();
+		login();
+	});
+	loginBtn.addEventListener("click", (e) => {
+		e.preventDefault();
+		login();
 	});
 };
 
