@@ -27,9 +27,6 @@ function loadLibrary() {
 				`;
 				libSection.appendChild(songBox);
 				songBox.addEventListener("click", () => {
-					// console.log(`Clicked on ${title} by ${artist} in the library`);
-					// console.log("SavedSongs:", savedSongs)
-					// console.log(`TrackID: ${trackId}, Index: ${position}`)
 					playLibrary(savedSongs, trackId)
 				});
 			});
@@ -39,8 +36,8 @@ function loadLibrary() {
 		
 	} else if (!savedSongsString) {
 		emptyLib();
-	}
-}
+	};
+};
 
 function emptyLib() {
 	libSection.innerHTML = '';
@@ -53,13 +50,13 @@ function emptyLib() {
 		</div>
 	`
 	libSection.appendChild(songBox);
-}
+};
 
 trash.addEventListener("click", () => {
 	console.log("trashbtn clicked")
 	localStorage.removeItem("savedsongs");
 	setTimeout(loadLibrary, 500)
-})
+});
 
 function playLibrary(obj, trackId){
 	const hearticons = document.getElementById("hearticon");
@@ -91,10 +88,8 @@ function playLibrary(obj, trackId){
 				playCurrentSong(songs, currentSongIndex);
 			});
 			playCurrentSong(songs, currentSongIndex);
-		}
-	}
-}
+		};
+	};
+};
 
-export {
-	loadLibrary,
-}
+export { loadLibrary };

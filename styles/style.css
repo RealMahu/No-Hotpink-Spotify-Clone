@@ -398,22 +398,35 @@ body .aside-left .lower-box .library-songs .empty-box .empty p {
   font-weight: bold;
 }
 body .aside-left .menuBtn {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7607843137);
   display: flex;
   gap: 15px;
   font-weight: bold;
   align-items: center;
   cursor: pointer;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   height: -moz-fit-content;
   height: fit-content;
+  position: relative;
 }
 body .aside-left .menuBtn p {
   font-size: 16px;
 }
 body .aside-left .menuBtn i {
   font-size: 25px;
+}
+body .aside-left .menuBtn:hover {
+  color: #fff;
+}
+body .aside-left .menuBtn:hover.menuBtn::after {
+  visibility: visible;
+}
+body .aside-left .menuBtn::after {
+  content: "\f113";
+  font-family: "Bootstrap-icons";
+  position: absolute;
+  right: 0;
+  visibility: hidden;
 }
 body .aside-right {
   border-radius: 5px;
@@ -498,7 +511,7 @@ body .aside-right .upper-box2 .accent-switch .switch-button .switch-outer .butto
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
-  border: 3px solid #ff1389;
+  border: 2px solid #ff1389;
   box-sizing: border-box;
   right: 0px;
   position: relative;
@@ -512,7 +525,7 @@ body .aside-right .upper-box2 .accent-switch .switch-button .switch-outer .butto
   }
   100% {
     opacity: 1;
-    border: 3px solid #2ecc71;
+    border: 2px solid #2ecc71;
     left: -68%;
   }
 }
@@ -575,7 +588,10 @@ body .aside-right .lower-box2 .tab-titles .acc:hover::after {
 }
 body .aside-right .lower-box2 .tab-titles .active {
   background-color: #333;
-  color: #fff;
+  color: var(--accent-color);
+}
+body .aside-right .lower-box2 .tab-titles .active:hover {
+  color: var(--accent-color);
 }
 body .aside-right .lower-box2 .tab-box {
   overflow-y: auto;
@@ -723,6 +739,9 @@ body .aside-right .lower-box2 .tab-box .form-box .register-form .form-row input,
 body .aside-right .lower-box2 .tab-box .form-box .register-form .form-row input:focus, body .aside-right .lower-box2 .tab-box .form-box .login-form .form-row input:focus {
   border-color: #fff;
 }
+body .aside-right .lower-box2 .tab-box .form-box .register-form .form-row label span, body .aside-right .lower-box2 .tab-box .form-box .login-form .form-row label span {
+  color: rgb(190, 0, 0);
+}
 body .aside-right .lower-box2 .tab-box .form-box .register-form .form-row button, body .aside-right .lower-box2 .tab-box .form-box .login-form .form-row button {
   display: none;
 }
@@ -751,6 +770,9 @@ body .aside-right .lower-box2 .tab-box .form-box .register-form .button-box, bod
   padding: 0px 40px;
   align-items: start;
 }
+body .aside-right .lower-box2 .tab-box .form-box .register-form .already-box, body .aside-right .lower-box2 .tab-box .form-box .login-form .already-box {
+  text-align: center;
+}
 body .aside-right .lower-box2 .tab-box .form-box .register-form .already-box p span, body .aside-right .lower-box2 .tab-box .form-box .login-form .already-box p span {
   font-size: 12px;
   color: var(--accent-color);
@@ -758,6 +780,15 @@ body .aside-right .lower-box2 .tab-box .form-box .register-form .already-box p s
 }
 body .aside-right .lower-box2 .tab-box .form-box .register-form .already-box p span:hover, body .aside-right .lower-box2 .tab-box .form-box .login-form .already-box p span:hover {
   text-decoration: underline;
+}
+body .aside-right .lower-box2 .tab-box .form-box .register-form .already-box small, body .aside-right .lower-box2 .tab-box .form-box .login-form .already-box small {
+  font-size: 10px;
+}
+body .aside-right .lower-box2 .tab-box .form-box .register-form .already-box small span, body .aside-right .lower-box2 .tab-box .form-box .login-form .already-box small span {
+  color: rgb(190, 0, 0);
+}
+body .aside-right .lower-box2 .tab-box .form-box .register-form .picture-box input, body .aside-right .lower-box2 .tab-box .form-box .login-form .picture-box input {
+  padding: 1px 5px;
 }
 body .aside-right .lower-box2 .tab-box .form-box .register-form .alert-box .alert-message, body .aside-right .lower-box2 .tab-box .form-box .login-form .alert-box .alert-message {
   font-size: 14px;
@@ -772,6 +803,56 @@ body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-heading {
   display: flex;
   justify-content: center;
   color: #fff;
+}
+body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-profilepic {
+  display: flex;
+  justify-content: center;
+}
+body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-profilepic .profilePicture-wrapper {
+  position: relative;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-profilepic .profilePicture-wrapper img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+  border: 2px solid var(--accent-color);
+}
+body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-profilepic .profilePicture-wrapper::before {
+  content: "\f4ca";
+  font-family: "Bootstrap-icons";
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 100%;
+  background-color: #111;
+  color: #fff;
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
+  cursor: pointer;
+  pointer-events: all;
+}
+body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-profilepic .profilePicture-wrapper:hover::after {
+  visibility: visible;
+}
+body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-profilepic .profilePicture-wrapper::after {
+  content: "Edit Picture";
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  bottom: 25px;
+  right: -70px;
+  text-align: center;
+  visibility: hidden;
 }
 body .aside-right .lower-box2 .tab-box .loggedIn-box .logged-info {
   color: #fff;

@@ -15,7 +15,6 @@ const loginBtn = document.querySelector(".login");
 const accBtn = document.querySelector(".acc");
 
 const chartList = file.chartList;
-const artist = chartList.artist;
 
 const options = {
 	method: "GET",
@@ -64,9 +63,9 @@ async function loadTab() {
 			});
 		} catch (error) {
 			console.error(error);
-		}
-	}
-}
+		};
+	};
+};
 
 function toggleAccentColor() {
 	const r = document.querySelector(':root');
@@ -79,7 +78,7 @@ function toggleAccentColor() {
 		favIco.href = "/img/icon2.ico";
 		pageTitle.innerText = 'No Hotpink Spotify'
 	}
-}
+};
 
 toggle.addEventListener("change", (e) => {
 	e.preventDefault();
@@ -94,7 +93,7 @@ accBtn.addEventListener("click", (e) => {
 	loginBtn.classList.remove("active");
 	setTimeout(logging, 200);
 	setTimeout(getGreeting, 200);
-})
+});
 
 loginBtn.addEventListener("click", (e) => {
 	e.preventDefault();
@@ -194,6 +193,6 @@ function createProfiles(){
 		e.preventDefault();
 		window.open(`${linkUrl}David-Brandenburg`, '_blank');
 	});
-}
+};
 
 export { toggleAccentColor, loadTab };

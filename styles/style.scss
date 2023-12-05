@@ -395,19 +395,33 @@ body {
 			}
 		}
 		.menuBtn{
-			color: #fff;
+			color: #ffffffc2;
 			display: flex;
 			gap: 15px;
 			font-weight: bold;
 			align-items: center;
 			cursor: pointer;
-			width: fit-content;
+			width: 100%;
 			height: fit-content;
+			position: relative;
 			p{
 				font-size: 16px;
 			}
 			i{
 				font-size: 25px;
+			}
+			&:hover{
+				color: #fff;
+				&.menuBtn::after{
+					visibility: visible;
+				}
+			}
+			&::after{
+				content: '\F113';
+				font-family: 'Bootstrap-icons';
+				position: absolute;
+				right: 0;
+				visibility: hidden;
 			}
 		}
 	}
@@ -465,9 +479,9 @@ body {
 				.switch-button .switch-outer .button-toggle {
 					height: 20px;
 					width: 20px;
-					background: -webkit-gradient( linear, left top, left bottom, from(#222), to(#333)); //#272733
+					background: -webkit-gradient( linear, left top, left bottom, from(#222), to(#333));
 					background: -o-linear-gradient(#222, #333);
-					background: linear-gradient(#222, #333); //3b3a4e
+					background: linear-gradient(#222, #333);
 					border-radius: 100%;
 					-webkit-box-shadow: inset 0px 5px 4px 0px #222, 0px 4px 15px 0px #0f0e17;
 					box-shadow: inset 0px 5px 4px 0px #222, 0px 4px 15px 0px #0f0e17;
@@ -511,7 +525,7 @@ body {
 					-webkit-transform: translateY(-50%);
 					transform: translateY(-50%);
 					border-radius: 50%;
-					border: 3px solid #ff1389;
+					border: 2px solid #ff1389;
 					-webkit-box-sizing: border-box;
 					box-sizing: border-box;
 					right: 0px;
@@ -526,7 +540,7 @@ body {
 					}
 					100% {
 						opacity: 1;
-						border: 3px solid #2ecc71;
+						border: 2px solid #2ecc71;
 						left: -68%;
 					}
 				}
@@ -539,7 +553,7 @@ body {
 					}
 					100% {
 						opacity: 1;
-						border: 3px solid #2ecc71;
+						border: 2px solid #2ecc71;
 						left: -68%;
 					}
 				}
@@ -610,7 +624,10 @@ body {
 				}
 				.active{
 					background-color: #333;
-					color: #fff;
+					color: var(--accent-color);
+					&:hover{
+						color: var(--accent-color);
+					}
 				}
 			}
 			.tab-box{
@@ -759,6 +776,11 @@ body {
 									border-color: #fff;
 								}
 							}
+							label{
+								span{
+									color: rgb(190, 0, 0);
+								}
+							}
 							button{
 								display: none;
 							}
@@ -787,6 +809,7 @@ body {
 							align-items: start;
 						}
 						.already-box{
+							text-align: center;
 							p{
 								span{
 									font-size: 12px;
@@ -796,6 +819,17 @@ body {
 										text-decoration: underline;
 									}
 								}
+							}
+							small{
+								font-size: 10px;
+								span{
+									color: rgb(190, 0, 0);
+								}
+							}
+						}
+						.picture-box{
+							input{
+								padding: 1px 5px;
 							}
 						}
 						.alert-box{
@@ -814,6 +848,55 @@ body {
 						display: flex;
 						justify-content: center;
 						color: #fff;
+					}
+					.logged-profilepic{
+						display: flex;
+						justify-content: center;
+						.profilePicture-wrapper{
+							position: relative;
+							pointer-events: none;
+							user-select: none;
+							img{
+								width: 150px;
+								height: 150px;
+								object-fit: cover;
+								border-radius: 100%;
+								border: 2px solid var(--accent-color);
+							}
+							&::before{
+								content: '\F4CA';
+								font-family: 'Bootstrap-icons';
+								height: 35px;
+								width: 35px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								font-size: 18px;
+								border-radius: 100%;
+								background-color: #111;
+								color: #fff;
+								position: absolute;
+								bottom: 5px;
+								right: 15px;
+								cursor: pointer;
+								pointer-events: all;
+							}
+							&:hover{
+								&::after{
+									visibility: visible;
+								}
+							}
+							&::after{
+								content: 'Edit Picture';
+								font-size: 14px;
+								color: #fff;
+								position: absolute;
+								bottom: 25px;
+								right: -70px;
+								text-align: center;
+								visibility: hidden;
+							}
+						}
 					}
 					.logged-info{
 						color: #fff;
